@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{FD775EEA-C9F6-42CC-8898-0B33883A9BF9}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BE</RootNamespace>
+    <AssemblyName>BE</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Almacen\EMA_ARTICLE.cs" />
+    <Compile Include="Almacen\EMA_CENTER_COST.cs" />
+    <Compile Include="Almacen\EMA_COMMODITY_TYPE.cs" />
+    <Compile Include="Almacen\EMA_CUSTOMER.cs" />
+    <Compile Include="Almacen\EMA_DOCTRANS_TYPE.cs" />
+    <Compile Include="Almacen\EMA_FAMILY.cs" />
+    <Compile Include="Almacen\EMA_FAMILY_SUB.cs" />
+    <Compile Include="Almacen\EMA_LOT.cs" />
+    <Compile Include="Almacen\EMA_PROVIDER.cs" />
+    <Compile Include="Almacen\EMA_SERVICES.cs" />
+    <Compile Include="Almacen\EMA_TRANSACTION_TYPE.cs" />
+    <Compile Include="Almacen\EMA_UNITS.cs" />
+    <Compile Include="Almacen\EMA_WAREHOUSE.cs" />
+    <Compile Include="Almacen\EREP_INVKARDEX.cs" />
+    <Compile Include="Almacen\EREP_INVSTOCK.cs" />
+    <Compile Include="Almacen\EREP_INVTRANSAC.cs" />
+    <Compile Include="Almacen\ERE_LISTA01.cs" />
+    <Compile Include="Almacen\ERE_LISTA02.cs" />
+    <Compile Include="Almacen\ERE_LISTA03.cs" />
+    <Compile Include="Almacen\ERE_LISTA04.cs" />
+    <Compile Include="Almacen\ERE_LISTA05.cs" />
+    <Compile Include="Almacen\ERE_LISTA06.cs" />
+    <Compile Include="Almacen\ERE_LISTA07.cs" />
+    <Compile Include="Almacen\ETRA_GUIAING.cs" />
+    <Compile Include="Almacen\ETRA_WAREHOUSE.cs" />
+    <Compile Include="Almacen\ETRA_WAREHOUSE_LINE.cs" />
+    <Compile Include="Almacen\ETRA_WAREHOUSE_QTY.cs" />
+    <Compile Include="Almacen\ETRA_WAREHOUSE_QTY_LOT.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Ventas\EMA_DOCUMENTS.cs" />
+    <Compile Include="Ventas\EMA_PAYMENTTYPE.cs" />
+    <Compile Include="Ventas\EMA_PROJECT.cs" />
+    <Compile Include="Ventas\EMA_SALESPOINT.cs" />
+    <Compile Include="Ventas\EMA_SALESTYPE.cs" />
+    <Compile Include="Ventas\EMA_SALPOINTSERIE.cs" />
+    <Compile Include="Ventas\EMA_SELLER.cs" />
+    <Compile Include="Ventas\EMA_TYPECOMMERCE.cs" />
+    <Compile Include="Ventas\EMA_TYPECUSTOMER.cs" />
+    <Compile Include="Ventas\EMA_TYPEPRICE.cs" />
+    <Compile Include="Ventas\EMS_ORDER.cs" />
+    <Compile Include="Ventas\EMS_ORDERCAB.cs" />
+    <Compile Include="Ventas\EMS_ORDERDET.cs" />
+    <Compile Include="Ventas\EMS_VOUCHER.cs" />
+    <Compile Include="Ventas\EMS_VOUCHERDE.cs" />
+    <Compile Include="Ventas\EMS_VOUCHERHE.cs" />
+    <Compile Include="Ventas\EREP_SELVTAXARTI.cs" />
+    <Compile Include="Ventas\EREP_SELVTAXCUSTO.cs" />
+    <Compile Include="Ventas\EREP_SELVTAXSEL.cs" />
+    <Compile Include="Ventas\ERE_LISTADOCOMPROBANTE.cs" />
+    <Compile Include="Ventas\ERE_LISTADOPEDIDO.cs" />
+    <Compile Include="Ventas\ERE_LISTADOPEDIDOAYU.cs" />
+    <Compile Include="Ventas\ERE_VISTACOMPROBANTE.cs" />
+    <Compile Include="Ventas\ERE_VISTACOMPROBANTECAB.cs" />
+    <Compile Include="Ventas\ERE_VISTACOMPROBANTEDET.cs" />
+    <Compile Include="Ventas\ERE_VISTAPEDIDO.cs" />
+    <Compile Include="Ventas\ERE_VISTAPEDIDOCAB.cs" />
+    <Compile Include="Ventas\ERE_VISTAPEDIDODET.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
