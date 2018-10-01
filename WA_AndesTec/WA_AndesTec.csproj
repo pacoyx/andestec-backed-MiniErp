@@ -115,6 +115,7 @@
     <Compile Include="Controllers\MA_TYPECOMMERCEController.cs" />
     <Compile Include="Controllers\MA_TYPECUSTOMERController.cs" />
     <Compile Include="Controllers\MA_TYPEPRICEController.cs" />
+    <Compile Include="Controllers\MA_TYPEPROVIDERController.cs" />
     <Compile Include="Controllers\MA_UNITSController.cs" />
     <Compile Include="Controllers\MA_WAREHOUSEController.cs" />
     <Compile Include="Controllers\MS_ORDERCABController.cs" />

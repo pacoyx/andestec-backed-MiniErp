@@ -58,7 +58,7 @@ namespace DA.Ventas
 
         public static List<EMA_TYPEPRICE> GetAll(EMA_TYPEPRICE e)
         {
-            var sql = "SP_D_MA_TYPEPRICE";
+            var sql = "SP_S_MA_TYPEPRICE";
             using (SqlConnection cnx = new SqlConnection(Utilidad.getCadenaCnx()))
             {
                 cnx.Open();
@@ -68,7 +68,7 @@ namespace DA.Ventas
 
         public static EMA_TYPEPRICE GetByid(EMA_TYPEPRICE e)
         {
-            var sql = "SP_D_MA_TYPEPRICE_BYID";
+            var sql = "SP_S_MA_TYPEPRICE_BYID";
             using (SqlConnection cnx = new SqlConnection(Utilidad.getCadenaCnx()))
             {
                 cnx.Open();

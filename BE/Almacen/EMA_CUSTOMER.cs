@@ -17,7 +17,7 @@ namespace BE.Almacen
         public string DELIVERY_ADDRESS { get; set; }
         public string COMMERCIAL_TYPE { get; set; }
         public string CUSTOMER_TYPE { get; set; }
-        public int PRICE_TYPE { get; set; }
+        public string PRICE_TYPE { get; set; }
         public int SALES { get; set; }
         public double CREDIT_LIMIT_LOCAL { get; set; }
         public double CREDIT_LIMIT_USD { get; set; }
@@ -25,7 +25,7 @@ namespace BE.Almacen
         public string MOVIL_CONTACT { get; set; }
         public string EMAIL { get; set; }
         public int ISTATUS { get; set; }
-        public int SALES_CODE { get; set; }
+        public string SALES_CODE { get; set; }
         public string AUSUARIO { get; set; }
         public string AFECREG { get; set; }
         public string AMODIFICO { get; set; }

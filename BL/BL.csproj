@@ -51,6 +51,7 @@
     <Compile Include="Almacen\MA_PROVIDERBL.cs" />
     <Compile Include="Almacen\MA_SERVICESBL.cs" />
     <Compile Include="Almacen\MA_TRANSACTION_TYPEBL.cs" />
+    <Compile Include="Almacen\MA_TYPEPROVIDERBL.cs" />
     <Compile Include="Almacen\MA_UNITSBL.cs" />
     <Compile Include="Almacen\MA_WAREHOUSEBL.cs" />
     <Compile Include="Reportes\RE_REPORTSBL.cs" />

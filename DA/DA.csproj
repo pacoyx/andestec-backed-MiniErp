@@ -55,6 +55,7 @@
     <Compile Include="Almacen\MA_PROVIDERDA.cs" />
     <Compile Include="Almacen\MA_SERVICESDA.cs" />
     <Compile Include="Almacen\MA_TRANSACTION_TYPEDA.cs" />
+    <Compile Include="Almacen\MA_TYPEPROVIDERDA.cs" />
     <Compile Include="Almacen\MA_UNITSDA.cs" />
     <Compile Include="Almacen\MA_WAREHOUSEDA.cs" />
     <Compile Include="Reportes\RE_REPORTSDA.cs" />

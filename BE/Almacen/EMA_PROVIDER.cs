@@ -18,7 +18,7 @@ namespace BE.Almacen
         public string CONTACT { get; set; }
         public string MOVIL_CONTACT { get; set; }
         public string EMAIL { get; set; }
-        public int ISTATUS { get; set; }
+        public string ISTATUS { get; set; }
         public string AUSUARIO { get; set; }
         public string AFECREG { get; set; }
         public string AMODIFICO { get; set; }

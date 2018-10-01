@@ -10,7 +10,7 @@ namespace BE.Almacen
     {
         public int ID_ARTICLE { get; set; }
         public int ID_COMPANY { get; set; }
-        public int ID_COMMODITY_TYPE { get; set; }
+        public string ID_COMMODITY_TYPE { get; set; }
         public string ID_UNIT { get; set; }
         public int ID_FAMILY { get; set; }
         public int ID_FAMILY_SUB { get; set; }

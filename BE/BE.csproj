@@ -51,6 +51,7 @@
     <Compile Include="Almacen\EMA_PROVIDER.cs" />
     <Compile Include="Almacen\EMA_SERVICES.cs" />
     <Compile Include="Almacen\EMA_TRANSACTION_TYPE.cs" />
+    <Compile Include="Almacen\EMA_TYPEPROVIDER.cs" />
     <Compile Include="Almacen\EMA_UNITS.cs" />
     <Compile Include="Almacen\EMA_WAREHOUSE.cs" />
     <Compile Include="Almacen\EREP_INVKARDEX.cs" />

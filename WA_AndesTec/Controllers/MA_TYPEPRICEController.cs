@@ -11,7 +11,7 @@ using BL.Ventas;
 namespace WA_AndesTec.Controllers
 {
     [EnableCors("*", "*", "*")]
-    [RoutePrefix("MA_TYPECUSTOMER")]
+    [RoutePrefix("MA_TYPEPRICE")]
     public class MA_TYPEPRICEController : ApiController
     {
         MA_TYPEPRICEBL negocio = new MA_TYPEPRICEBL();

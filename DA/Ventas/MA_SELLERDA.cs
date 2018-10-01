@@ -21,7 +21,12 @@ namespace DA.Ventas
                 {
                     P_SE_ID = e.SE_ID,
                     P_SE_DESCRIPCION = e.SE_DESCRIPCION,
-                    P_SE_IDCOMPANY = e.SE_IDCOMPANY
+                    P_SE_IDCOMPANY = e.SE_IDCOMPANY,
+                    P_SE_DNI = e.SE_DNI,
+                    P_SE_ADD = e.SE_ADD,
+                    P_SE_PHONE = e.SE_PHONE,
+                    P_SE_EMAIL = e.SE_EMAIL,
+                    P_SE_ISTATUS = e.SE_ISTATUS
                 },
                             commandType: CommandType.StoredProcedure);
             }
@@ -36,7 +41,12 @@ namespace DA.Ventas
                 {
                     P_SE_ID = e.SE_ID,
                     P_SE_DESCRIPCION = e.SE_DESCRIPCION,
-                    P_SE_IDCOMPANY = e.SE_IDCOMPANY
+                    P_SE_IDCOMPANY = e.SE_IDCOMPANY,
+                    P_SE_DNI = e.SE_DNI,
+                    P_SE_ADD = e.SE_ADD,
+                    P_SE_PHONE = e.SE_PHONE,
+                    P_SE_EMAIL = e.SE_EMAIL,
+                    P_SE_ISTATUS = e.SE_ISTATUS
                 },
                             commandType: CommandType.StoredProcedure);
             }

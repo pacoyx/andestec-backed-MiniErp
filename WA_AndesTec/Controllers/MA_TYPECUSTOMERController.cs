@@ -15,6 +15,7 @@ namespace WA_AndesTec.Controllers
     public class MA_TYPECUSTOMERController : ApiController
     {
         MA_TYPECUSTOMERBL negocio = new MA_TYPECUSTOMERBL();
+
         [HttpGet, Route("{ide}")]
         public IEnumerable<EMA_TYPECUSTOMER> Get(int ide)
         {
@@ -22,18 +23,16 @@ namespace WA_AndesTec.Controllers
         }
 
         [HttpGet, Route("{ide}/{id}")]
-        public EMA_TYPECUSTOMER GetBYID(int ide, string id)
+        public EMA_TYPECUSTOMER Get(int ide, string id)
         {
             return negocio.ListarxId(new EMA_TYPECUSTOMER { TC_ID = id, TC_IDCOMPANY = ide });
         }
-
 
         [HttpPost, Route("")]
         public void Post([FromBody]EMA_TYPECUSTOMER value)
         {
             negocio.Registrar(value);
         }
-
 
         [HttpDelete, Route("{ide}/{id}")]
         public void Delete(int ide, string id)
