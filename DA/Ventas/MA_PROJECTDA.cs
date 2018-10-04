@@ -60,18 +60,16 @@ namespace DA.Ventas
         {
             var sql = "SP_S_MA_PROJECT";
             using (SqlConnection cnx = new SqlConnection(Utilidad.getCadenaCnx()))
-            {
-                cnx.Open();
+            {                
                 return cnx.Query<EMA_PROJECT>(sql, new { P_PJ_IDCOMPANY = e.PJ_IDCOMPANY }, commandType: CommandType.StoredProcedure).ToList();
             }
         }
 
         public static EMA_PROJECT GetByid(EMA_PROJECT e)
         {
+            var sql = "SP_S_MA_PROJECT_BYID";
             using (SqlConnection cnx = new SqlConnection(Utilidad.getCadenaCnx()))
             {
-                var sql = "SP_S_MA_PROJECT_BYID";
-                cnx.Open();
                 return cnx.Query<EMA_PROJECT>(sql, new { P_PJ_ID = e.PJ_ID, P_PJ_IDCOMPANY = e.PJ_IDCOMPANY }, commandType: CommandType.StoredProcedure).SingleOrDefault();
             }
         }

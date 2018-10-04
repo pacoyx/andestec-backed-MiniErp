@@ -69,9 +69,13 @@
     <Compile Include="Almacen\ETRA_WAREHOUSE_LINE.cs" />
     <Compile Include="Almacen\ETRA_WAREHOUSE_QTY.cs" />
     <Compile Include="Almacen\ETRA_WAREHOUSE_QTY_LOT.cs" />
+    <Compile Include="Caja\ECA_BANKACCOUNT.cs" />
     <Compile Include="Caja\ECA_COLLECTION.cs" />
     <Compile Include="Caja\ECA_COLLECTION_LINE.cs" />
+    <Compile Include="Caja\ECA_COLLECTOR.cs" />
     <Compile Include="Caja\ECA_CUSTOM_BALANCE.cs" />
+    <Compile Include="Caja\ECA_TRANSCOLLECTION.cs" />
+    <Compile Include="Caja\EMA_BANK.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Ventas\EMA_DOCUMENTS.cs" />
     <Compile Include="Ventas\EMA_PAYMENTTYPE.cs" />
