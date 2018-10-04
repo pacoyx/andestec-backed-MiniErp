@@ -15,5 +15,7 @@ namespace BE.Ventas
         public string SP_COMMENT { get; set; }
         public string SP_ISTATUS { get; set; }
         public int SP_IDCOMPANY { get; set; }
+        public string SP_IDWAREHOUSE { get; set; }
+
     }
 }

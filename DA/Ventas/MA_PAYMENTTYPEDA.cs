@@ -22,7 +22,8 @@ namespace DA.Ventas
                 {
                     P_PT_ID = e.PT_ID,
                     P_PT_DES = e.PT_DES,
-                    P_PT_IDCOMPANY = e.PT_IDCOMPANY
+                    P_PT_IDCOMPANY = e.PT_IDCOMPANY,
+                    P_PT_DAYS = e.PT_DAYS
                 },
                             commandType: CommandType.StoredProcedure);
             }
@@ -37,7 +38,8 @@ namespace DA.Ventas
                 {
                     P_PT_ID = e.PT_ID,
                     P_PT_DES = e.PT_DES,
-                    P_PT_IDCOMPANY = e.PT_IDCOMPANY
+                    P_PT_IDCOMPANY = e.PT_IDCOMPANY,                    
+                    P_PT_DAYS = e.PT_DAYS
                 },
                             commandType: CommandType.StoredProcedure);
             }
@@ -61,8 +63,7 @@ namespace DA.Ventas
         {
             var sql = "SP_S_MA_PAYMENTTYPE";
             using (SqlConnection cnx = new SqlConnection(Utilidad.getCadenaCnx()))
-            {
-                cnx.Open();
+            {                
                 return cnx.Query<EMA_PAYMENTTYPE>(sql, new { P_PT_IDCOMPANY = e.PT_IDCOMPANY }, commandType: CommandType.StoredProcedure).ToList();
             }
         }
@@ -71,9 +72,8 @@ namespace DA.Ventas
         {
             using (SqlConnection cnx = new SqlConnection(Utilidad.getCadenaCnx()))
             {
-                var sql = "SP_S_MA_PAYMENTTYPE_BYID";
-                cnx.Open();
-                return cnx.Query<EMA_PAYMENTTYPE>(sql, new { P_PT_ID = e.PT_ID, P_PT_IDCOMPANY = e.PT_IDCOMPANY }, commandType: CommandType.StoredProcedure).SingleOrDefault();
+                var sql = "SP_S_MA_PAYMENTTYPE_BYID";                
+                return cnx.Query<EMA_PAYMENTTYPE>(sql, new { P_PT_ID = e.PT_ID, P_PT_IDCOMPANY = e.PT_IDCOMPANY  }, commandType: CommandType.StoredProcedure).SingleOrDefault();
             }
         }
 

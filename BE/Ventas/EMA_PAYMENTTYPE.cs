@@ -11,5 +11,6 @@ namespace BE.Ventas
         public string PT_ID { get; set; }
         public string PT_DES { get; set; }
         public int PT_IDCOMPANY { get; set; }
+        public int PT_DAYS { get; set; }
     }
 }

@@ -30,5 +30,6 @@ namespace BE.Ventas
         public string OC_IDSELLER { get; set; }
         public string OC_SERIE { get; set; }
         public int OC_CORRE { get; set; }
+        public string OC_WILCARDTEXT { get; set; }
     }
 }

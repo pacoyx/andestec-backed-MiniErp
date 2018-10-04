@@ -25,7 +25,8 @@ namespace DA.Ventas
                     P_SP_PHONE = e.SP_PHONE,
                     P_SP_COMMENT = e.SP_COMMENT,
                     P_SP_ISTATUS = e.SP_ISTATUS,
-                    P_SP_IDCOMPANY = e.SP_IDCOMPANY
+                    P_SP_IDCOMPANY = e.SP_IDCOMPANY,
+                    P_SP_IDWAREHOUSE = e.SP_IDWAREHOUSE
                 },
                             commandType: CommandType.StoredProcedure);
             }
@@ -44,7 +45,8 @@ namespace DA.Ventas
                     P_SP_PHONE = e.SP_PHONE,
                     P_SP_COMMENT = e.SP_COMMENT,
                     P_SP_ISTATUS = e.SP_ISTATUS,
-                    P_SP_IDCOMPANY = e.SP_IDCOMPANY
+                    P_SP_IDCOMPANY = e.SP_IDCOMPANY,
+                    P_SP_IDWAREHOUSE = e.SP_IDWAREHOUSE
                 },
                             commandType: CommandType.StoredProcedure);
             }
@@ -68,8 +70,7 @@ namespace DA.Ventas
         {
             var sql = "SP_S_MA_SALESPOINT";
             using (SqlConnection cnx = new SqlConnection(Utilidad.getCadenaCnx()))
-            {
-                cnx.Open();
+            {                
                 return cnx.Query<EMA_SALESPOINT>(sql, new { P_SP_IDCOMPANY = e.SP_IDCOMPANY }, commandType: CommandType.StoredProcedure).ToList();
             }
         }
@@ -78,8 +79,7 @@ namespace DA.Ventas
         {
             var sql = "SP_S_MA_SALESPOINT_BYID";
             using (SqlConnection cnx = new SqlConnection(Utilidad.getCadenaCnx()))
-            {
-                cnx.Open();
+            {                
                 return cnx.Query<EMA_SALESPOINT>(sql, new { P_SP_IDCOMPANY = e.SP_IDCOMPANY, P_SP_ID = e.SP_ID }, commandType: CommandType.StoredProcedure).SingleOrDefault();
             }
         }

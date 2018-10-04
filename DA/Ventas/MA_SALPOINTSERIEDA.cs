@@ -69,8 +69,7 @@ namespace DA.Ventas
         {
             var sql = "SP_S_MA_SALPOINTSERIE";
             using (SqlConnection cnx = new SqlConnection(Utilidad.getCadenaCnx()))
-            {
-                cnx.Open();
+            {                
                 return cnx.Query<EMA_SALPOINTSERIE>(sql, new { P_SS_IDPOINT = e.SS_IDPOINT, P_SS_IDCOMPANY = e.SS_IDCOMPANY }, commandType: CommandType.StoredProcedure).ToList();
             }
         }
@@ -79,8 +78,7 @@ namespace DA.Ventas
         {
             var sql = "SP_S_SALPOINTSERIE01";
             using (SqlConnection cnx = new SqlConnection(Utilidad.getCadenaCnx()))
-            {
-                cnx.Open();
+            {                
                 return cnx.Query<EMA_SALPOINTSERIE>(sql, new { P_SS_IDPOINT = e.SS_IDPOINT, P_SS_ID_DOCUMENT = e.SS_ID_DOCUMENT, P_SS_IDCOMPANY = e.SS_IDCOMPANY }, commandType: CommandType.StoredProcedure).ToList();
             }
         }
@@ -89,8 +87,7 @@ namespace DA.Ventas
         {
             var sql = "SP_S_SALPOINTSERIE02";
             using (SqlConnection cnx = new SqlConnection(Utilidad.getCadenaCnx()))
-            {
-                cnx.Open();
+            {                
                 return cnx.Query<EMA_SALPOINTSERIE>(sql, new { P_SS_IDPOINT = e.SS_IDPOINT, P_SS_IDCOMPANY = e.SS_IDCOMPANY }, commandType: CommandType.StoredProcedure).ToList();
             }
         }

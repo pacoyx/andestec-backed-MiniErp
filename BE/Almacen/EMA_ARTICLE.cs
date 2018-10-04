@@ -14,7 +14,7 @@ namespace BE.Almacen
         public string ID_UNIT { get; set; }
         public int ID_FAMILY { get; set; }
         public int ID_FAMILY_SUB { get; set; }
-        public int SKU_ARTICLE { get; set; }        
+        public string SKU_ARTICLE { get; set; }        
         public string DESCRIPTION_ARTICLE { get; set; }
         public string COMMERCIAL_NAME { get; set; }
         public string TECHNICAL_NAME { get; set; }

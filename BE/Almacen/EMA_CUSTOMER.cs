@@ -18,7 +18,7 @@ namespace BE.Almacen
         public string COMMERCIAL_TYPE { get; set; }
         public string CUSTOMER_TYPE { get; set; }
         public string PRICE_TYPE { get; set; }
-        public int SALES { get; set; }
+        public string IDPAYMENTYPE { get; set; }
         public double CREDIT_LIMIT_LOCAL { get; set; }
         public double CREDIT_LIMIT_USD { get; set; }
         public string CONTACT { get; set; }

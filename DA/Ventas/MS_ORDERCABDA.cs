@@ -49,7 +49,8 @@ namespace DA.Ventas
                         P_OC_IDCOMPANY = c.OC_IDCOMPANY,
                         P_OC_IDSELLER = c.OC_IDSELLER,
                         P_OC_SERIE = c.OC_SERIE,
-                        P_OC_CORRE = c.OC_CORRE
+                        P_OC_CORRE = c.OC_CORRE,
+                        P_OC_WILCARDTEXT = c.OC_WILCARDTEXT
                     }, tr,
                                 commandType: CommandType.StoredProcedure);
 

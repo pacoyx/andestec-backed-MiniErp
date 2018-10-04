@@ -60,8 +60,7 @@ namespace DA.Almacen
         {
             var sql = "SP_S_MA_COMMODITY_TYPE";
             using (SqlConnection cnx = new SqlConnection(Utilidad.getCadenaCnx()))
-            {
-                cnx.Open();
+            {                
                 return cnx.Query<EMA_COMMODITY_TYPE>(sql, new { P_ID_COMPANY = e.ID_COMPANY }, commandType: CommandType.StoredProcedure).ToList();
             }
         }
@@ -70,8 +69,7 @@ namespace DA.Almacen
         {
             var sql = "SP_S_MA_COMMODITY_TYPE_BYID";
             using (SqlConnection cnx = new SqlConnection(Utilidad.getCadenaCnx()))
-            {
-                cnx.Open();
+            {                
                 return cnx.Query<EMA_COMMODITY_TYPE>(sql, new { P_ID_COMPANY = e.ID_COMPANY, P_ID_COMMODITY_TYPE = e.ID_COMMODITY_TYPE }, commandType: CommandType.StoredProcedure).SingleOrDefault();
             }           
         }

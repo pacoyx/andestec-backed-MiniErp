@@ -60,18 +60,16 @@ namespace DA.Almacen
         {
             var sql = "SP_S_MA_CENTER_COST";
             using (SqlConnection cnx = new SqlConnection(Utilidad.getCadenaCnx()))
-            {
-                cnx.Open();
+            {                
                 return cnx.Query<EMA_CENTER_COST>(sql, new { P_ID_COMPANY = e.ID_COMPANY }, commandType: CommandType.StoredProcedure).ToList();
             }           
         }
 
         public static EMA_CENTER_COST GetByid(EMA_CENTER_COST e)
         {
+            var sql = "SP_S_MA_CENTER_COST_BYID";
             using (SqlConnection cnx = new SqlConnection(Utilidad.getCadenaCnx()))
-            {
-                var sql = "SP_S_MA_CENTER_COST_BYID";
-                cnx.Open();
+            {                                
                 return cnx.Query<EMA_CENTER_COST>(sql, new { P_ID_COMPANY = e.ID_COMPANY, P_ID_CENTER_COST = e.ID_CENTER_COST }, commandType: CommandType.StoredProcedure).SingleOrDefault();                
             }            
         }
