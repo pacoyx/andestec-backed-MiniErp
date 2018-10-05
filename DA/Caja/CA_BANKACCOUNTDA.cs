@@ -72,7 +72,7 @@ namespace DA.Caja
 
         public static ECA_BANKACCOUNT GetByid(ECA_BANKACCOUNT e)
         {
-            var sql = "SP_D_CA_BANKACCOUNT_BYID";
+            var sql = "SP_S_CA_BANKACCOUNT_BYID";
             using (SqlConnection cnx = new SqlConnection(Utilidad.getCadenaCnx()))
             {
                 return cnx.Query<ECA_BANKACCOUNT>(sql, new { P_AB_ID = e.AB_ID, P_AB_IDCOMPANY = e.AB_IDCOMPANY }, commandType: CommandType.StoredProcedure).SingleOrDefault();

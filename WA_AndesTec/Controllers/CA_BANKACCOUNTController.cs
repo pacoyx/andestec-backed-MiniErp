@@ -24,9 +24,9 @@ namespace WA_AndesTec.Controllers
         }
 
         [HttpGet, Route("{ide}/{id}")]
-        public ECA_BANKACCOUNT Get(int ide, string id)
+        public ECA_BANKACCOUNT Get(int ide, int id)
         {
-            return negocio.ListarxId(new ECA_BANKACCOUNT { AB_IDBANK = id, AB_IDCOMPANY = ide });
+            return negocio.ListarxId(new ECA_BANKACCOUNT { AB_ID = id, AB_IDCOMPANY = ide });
         }
 
         [HttpPost, Route("")]
@@ -36,9 +36,9 @@ namespace WA_AndesTec.Controllers
         }
 
         [HttpDelete, Route("{ide}/{id}")]
-        public void Delete(int ide, string id)
+        public void Delete(int ide, int id)
         {
-            negocio.Eliminar(new ECA_BANKACCOUNT { AB_IDBANK = id, AB_IDCOMPANY = ide });
+            negocio.Eliminar(new ECA_BANKACCOUNT { AB_ID = id, AB_IDCOMPANY = ide });
         }
     }
 }
