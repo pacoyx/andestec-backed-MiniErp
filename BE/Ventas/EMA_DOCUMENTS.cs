@@ -15,5 +15,6 @@ namespace BE.Ventas
         public string CODE_ELECTRONIC { get; set; }
         public string ISTATUS { get; set; }
         public int ID_COMPANY { get; set; }        
+
     }
 }
