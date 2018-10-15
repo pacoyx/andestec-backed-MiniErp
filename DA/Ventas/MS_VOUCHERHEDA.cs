@@ -53,7 +53,15 @@ namespace DA.Ventas
                         P_VH_AFECREG = DateTime.Parse(c.VH_AFECREG),
                         P_VH_AMODIFICO = c.VH_AMODIFICO,
                         P_VH_AFECMOD = DateTime.Parse(c.VH_AFECMOD),
-                        P_VH_IDCOMPANY = c.VH_IDCOMPANY
+                        P_VH_IDCOMPANY = c.VH_IDCOMPANY,
+                        P_VH_ISCASHCARD = c.VH_ISCASHCARD,
+                        P_VH_CARDTYPE = c.VH_CARDTYPE,
+                        P_VH_OPENUMCARD = c.VH_OPENUMCARD,
+                        P_VH_PAYAMOUNT = c.VH_PAYAMOUNT,
+                        P_VH_CHANGEAMOUNT = c.VH_CHANGEAMOUNT,
+                        P_VH_SUBTOT = c.VH_SUBTOT,
+                        P_VH_TAX = c.VH_TAX,
+                        P_VH_TOT = c.VH_TOT
                     }, tr,
                                 commandType: CommandType.StoredProcedure);
 

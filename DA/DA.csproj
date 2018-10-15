@@ -59,7 +59,10 @@
     <Compile Include="Almacen\MA_UNITSDA.cs" />
     <Compile Include="Almacen\MA_WAREHOUSEDA.cs" />
     <Compile Include="Caja\CA_BANKACCOUNTDA.cs" />
+    <Compile Include="Caja\CA_COLLECTIONDA.cs" />
+    <Compile Include="Caja\CA_COLLECTION_LINEDA.cs" />
     <Compile Include="Caja\CA_COLLECTORDA.cs" />
+    <Compile Include="Caja\CA_CUSTOM_BALANCEDA.cs" />
     <Compile Include="Caja\CA_TRANSCOLLECTIONDA.cs" />
     <Compile Include="Caja\MA_BANKDA.cs" />
     <Compile Include="Reportes\RE_REPORTSDA.cs" />

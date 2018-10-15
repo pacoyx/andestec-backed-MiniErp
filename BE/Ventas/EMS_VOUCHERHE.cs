@@ -35,5 +35,13 @@ namespace BE.Ventas
         public string VH_AMODIFICO { get; set; }
         public string VH_AFECMOD { get; set; }
         public int VH_IDCOMPANY { get; set; }
+        public string VH_ISCASHCARD { get; set; }
+        public string VH_CARDTYPE { get; set; }
+        public string VH_OPENUMCARD { get; set; }
+        public double VH_PAYAMOUNT { get; set; }
+        public double VH_CHANGEAMOUNT { get; set; }
+        public double VH_SUBTOT { get; set; }
+        public double VH_TAX { get; set; }
+        public double VH_TOT { get; set; }
     }
 }

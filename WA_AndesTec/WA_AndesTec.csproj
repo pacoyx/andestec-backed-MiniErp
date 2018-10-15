@@ -95,7 +95,9 @@
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\CA_BANKACCOUNTController.cs" />
+    <Compile Include="Controllers\CA_COLLECTIONController.cs" />
     <Compile Include="Controllers\CA_COLLECTORController.cs" />
+    <Compile Include="Controllers\CA_CUSTOM_BALANCEController.cs" />
     <Compile Include="Controllers\CA_TRANSCOLLECTIONController.cs" />
     <Compile Include="Controllers\MA_ARTICLEController.cs" />
     <Compile Include="Controllers\MA_BANKController.cs" />

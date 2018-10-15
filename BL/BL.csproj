@@ -55,7 +55,10 @@
     <Compile Include="Almacen\MA_UNITSBL.cs" />
     <Compile Include="Almacen\MA_WAREHOUSEBL.cs" />
     <Compile Include="Caja\CA_BANKACCOUNTBL.cs" />
+    <Compile Include="Caja\CA_COLLECTIONBL.cs" />
+    <Compile Include="Caja\CA_COLLECTION_LINEBL.cs" />
     <Compile Include="Caja\CA_COLLECTORBL.cs" />
+    <Compile Include="Caja\CA_CUSTOM_BALANCEBL.cs" />
     <Compile Include="Caja\CA_TRANSCOLLECTIONBL.cs" />
     <Compile Include="Caja\MA_BANKBL.cs" />
     <Compile Include="Reportes\RE_REPORTSBL.cs" />
