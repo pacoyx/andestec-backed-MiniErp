@@ -65,6 +65,8 @@
     <Compile Include="Caja\CA_CUSTOM_BALANCEDA.cs" />
     <Compile Include="Caja\CA_TRANSCOLLECTIONDA.cs" />
     <Compile Include="Caja\MA_BANKDA.cs" />
+    <Compile Include="Caja\MA_CREDITCARDDA.cs" />
+    <Compile Include="Caja\MA_PAYMENTMETHODDA.cs" />
     <Compile Include="Reportes\RE_REPORTSDA.cs" />
     <Compile Include="Almacen\TRA_WAREHOUSEDA.cs" />
     <Compile Include="Almacen\TRA_WAREHOUSE_QTYDA.cs" />

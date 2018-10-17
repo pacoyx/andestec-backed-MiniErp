@@ -70,6 +70,15 @@ namespace DA.Caja
             }
         }
 
+        public static List<ECA_BANKACCOUNT> GetByBank(ECA_BANKACCOUNT e)
+        {
+            var sql = "SP_S_CA_BANKACCOUNT_BYBANK";
+            using (SqlConnection cnx = new SqlConnection(Utilidad.getCadenaCnx()))
+            {
+                return cnx.Query<ECA_BANKACCOUNT>(sql, new { P_AB_IDBANK = e.AB_IDBANK, P_AB_IDCOMPANY = e.AB_IDCOMPANY }, commandType: CommandType.StoredProcedure).ToList();
+            }
+        }
+
         public static ECA_BANKACCOUNT GetByid(ECA_BANKACCOUNT e)
         {
             var sql = "SP_S_CA_BANKACCOUNT_BYID";

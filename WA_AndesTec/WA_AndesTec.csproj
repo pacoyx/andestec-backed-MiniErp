@@ -103,12 +103,14 @@
     <Compile Include="Controllers\MA_BANKController.cs" />
     <Compile Include="Controllers\MA_CENTER_COSTController.cs" />
     <Compile Include="Controllers\MA_COMMODITY_TYPEController.cs" />
+    <Compile Include="Controllers\MA_CREDITCARDController.cs" />
     <Compile Include="Controllers\MA_CUSTOMERController.cs" />
     <Compile Include="Controllers\MA_DOCTRANS_TYPEController.cs" />
     <Compile Include="Controllers\MA_DOCUMENTSController.cs" />
     <Compile Include="Controllers\MA_FAMILYController.cs" />
     <Compile Include="Controllers\MA_FAMILY_SUBController.cs" />
     <Compile Include="Controllers\MA_LOTController.cs" />
+    <Compile Include="Controllers\MA_PAYMENTMETHODController.cs" />
     <Compile Include="Controllers\MA_PAYMENTTYPEController.cs" />
     <Compile Include="Controllers\MA_PROJECTController.cs" />
     <Compile Include="Controllers\MA_PROVIDERController.cs" />

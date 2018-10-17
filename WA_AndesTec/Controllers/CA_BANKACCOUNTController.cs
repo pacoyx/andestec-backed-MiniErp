@@ -23,6 +23,12 @@ namespace WA_AndesTec.Controllers
             return negocio.Listar(new ECA_BANKACCOUNT { AB_IDCOMPANY = ide });
         }
 
+        [HttpGet, Route("{ide}/xbanco/{idbanco}")]
+        public IEnumerable<ECA_BANKACCOUNT> GetxBanco(int ide,string idbanco)
+        {
+            return negocio.ListarxBanco(new ECA_BANKACCOUNT {  AB_IDBANK = idbanco, AB_IDCOMPANY = ide });
+        }
+        
         [HttpGet, Route("{ide}/{id}")]
         public ECA_BANKACCOUNT Get(int ide, int id)
         {

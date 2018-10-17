@@ -77,6 +77,8 @@
     <Compile Include="Caja\ECA_CUSTOM_BALANCE.cs" />
     <Compile Include="Caja\ECA_TRANSCOLLECTION.cs" />
     <Compile Include="Caja\EMA_BANK.cs" />
+    <Compile Include="Caja\EMA_CREDITCARD.cs" />
+    <Compile Include="Caja\EMA_PAYMENTMETHOD.cs" />
     <Compile Include="Caja\EPLANILLADET.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Ventas\EMA_DOCUMENTS.cs" />
