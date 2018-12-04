@@ -81,6 +81,7 @@
     <Compile Include="Caja\EMA_PAYMENTMETHOD.cs" />
     <Compile Include="Caja\EPLANILLADET.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Test\TRADING.cs" />
     <Compile Include="Ventas\EMA_DOCUMENTS.cs" />
     <Compile Include="Ventas\EMA_PAYMENTTYPE.cs" />
     <Compile Include="Ventas\EMA_PROJECT.cs" />

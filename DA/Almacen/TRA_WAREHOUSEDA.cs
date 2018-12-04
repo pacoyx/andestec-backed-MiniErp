@@ -13,9 +13,9 @@ namespace DA.Almacen
     public static class TRA_WAREHOUSEDA
     {
 
-        public static void Insert(ETRA_GUIAING guia)
+        public static string Insert(ETRA_GUIAING guia)
         {
-            
+            string rpta = "";
             ETRA_WAREHOUSE e = guia.Cabecera;
             List<ETRA_WAREHOUSE_LINE> dets = guia.Detalle;
 
@@ -76,13 +76,16 @@ namespace DA.Almacen
 
                     }
                     tr.Commit();
+                    rpta = "ok";
 
                 }
                 catch (Exception ex) {
+                    rpta = ex.Message.ToString();
                     tr.Rollback();
                 }
 
             }
+            return rpta;
         }
 
         public static List<ERE_LISTA01> GetAll(int emp)

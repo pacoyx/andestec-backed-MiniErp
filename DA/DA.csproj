@@ -71,6 +71,7 @@
     <Compile Include="Almacen\TRA_WAREHOUSEDA.cs" />
     <Compile Include="Almacen\TRA_WAREHOUSE_QTYDA.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Test\TradingDA.cs" />
     <Compile Include="Utilidad.cs" />
     <Compile Include="Ventas\MA_DOCUMENTSDA.cs" />
     <Compile Include="Ventas\MA_PAYMENTTYPEDA.cs" />

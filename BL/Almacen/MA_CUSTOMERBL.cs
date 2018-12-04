@@ -16,7 +16,30 @@ namespace BL.Almacen
         public EMA_CUSTOMER ListarxId(EMA_CUSTOMER ee) => MA_CUSTOMERDA.GetByid(ee);
         public List<EMA_CUSTOMER> ListarPorNombre(EMA_CUSTOMER ee)
         {
-            return MA_CUSTOMERDA.GetAll(ee).Where(p => p.DESCRIPTION_CUSTOMER.Contains(ee.DESCRIPTION_CUSTOMER)).ToList();
+            if (ee.DESCRIPTION_CUSTOMER == "9z")
+            {
+                return MA_CUSTOMERDA.GetAll(ee).ToList();
+            }
+            else {
+                return MA_CUSTOMERDA.GetAll(ee).Where(p => p.DESCRIPTION_CUSTOMER.ToLower().
+                Contains(ee.DESCRIPTION_CUSTOMER.ToLower())).OrderBy(x => x.DESCRIPTION_CUSTOMER).ToList();
+            }
+            
+        }
+
+        public EMA_CUSTOMER ListarPorDocumento(EMA_CUSTOMER ee)
+        {
+            if (ee.NUMBER_DOCUMENT == "9z")
+            {
+                return MA_CUSTOMERDA.GetByid(ee);
+            }
+            else
+            {
+                return MA_CUSTOMERDA.GetAll(ee).Where(p => p.NUMBER_DOCUMENT.ToLower().
+                Equals(ee.NUMBER_DOCUMENT.ToLower())).SingleOrDefault();
+                
+            }
+
         }
     }
 }

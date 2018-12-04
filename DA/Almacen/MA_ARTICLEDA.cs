@@ -38,7 +38,8 @@ namespace DA.Almacen
                     P_AFECREG = e.AFECREG,
                     P_AMODIFICO = e.AMODIFICO,
                     P_AFECMOD = e.AFECMOD,
-                    P_AISSERVICE = e.AISSERVICE
+                    P_AISSERVICE = e.AISSERVICE,
+                    P_ISTATUS = e.ISTATUS
                 },
                             commandType: CommandType.StoredProcedure);
             }
@@ -71,7 +72,8 @@ namespace DA.Almacen
                     P_AFECREG = e.AFECREG,
                     P_AMODIFICO = e.AMODIFICO,
                     P_AFECMOD = e.AFECMOD,
-                    P_AISSERVICE = e.AISSERVICE
+                    P_AISSERVICE = e.AISSERVICE,
+                    P_ISTATUS = e.ISTATUS
                 },
                             commandType: CommandType.StoredProcedure);
             }

@@ -129,6 +129,7 @@
     <Compile Include="Controllers\MS_ORDERCABController.cs" />
     <Compile Include="Controllers\MS_VOUCHERHEController.cs" />
     <Compile Include="Controllers\RE_REPORTSController.cs" />
+    <Compile Include="Controllers\TradingController.cs" />
     <Compile Include="Controllers\TRA_WAREHOUSEController.cs" />
     <Compile Include="Controllers\TRA_WAREHOUSE_QTYController.cs" />
     <Compile Include="Global.asax.cs">

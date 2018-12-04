@@ -67,6 +67,7 @@
     <Compile Include="Almacen\TRA_WAREHOUSEBL.cs" />
     <Compile Include="Almacen\TRA_WAREHOUSE_QTYBL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Test\TradingBL.cs" />
     <Compile Include="Ventas\MA_DOCUMENTSBL.cs" />
     <Compile Include="Ventas\MA_PAYMENTTYPEBL.cs" />
     <Compile Include="Ventas\MA_PROJECTBL.cs" />

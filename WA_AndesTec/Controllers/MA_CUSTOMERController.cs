@@ -34,6 +34,12 @@ namespace WA_AndesTec.Controllers
             return negocio.ListarPorNombre(new EMA_CUSTOMER { ID_COMPANY = ide, DESCRIPTION_CUSTOMER = dato });
         }
 
+        [HttpGet, Route("{ide}/buscarDoc/{dato}")]
+        public EMA_CUSTOMER GetBuscarxDocumento(int ide, string dato)
+        {
+            return negocio.ListarPorDocumento(new EMA_CUSTOMER { ID_COMPANY = ide, NUMBER_DOCUMENT = dato });
+        }
+
         [HttpPost, Route("")]
         public void Post([FromBody]EMA_CUSTOMER value)
         {

@@ -10,8 +10,8 @@ namespace BL.Almacen
 {
     public class TRA_WAREHOUSEBL
     {
-        public void Registrar(ETRA_GUIAING guia) {
-            TRA_WAREHOUSEDA.Insert(guia);
+        public string Registrar(ETRA_GUIAING guia) {
+            return TRA_WAREHOUSEDA.Insert(guia);
         }
 
         public List<ERE_LISTA01> Listar(int ee) {

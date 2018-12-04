@@ -38,7 +38,7 @@ namespace DA.Ventas
                 string sql = "SP_U_MA_DOCUMENTS";
                 cnx.Execute(sql, new
                 {
-                    P_ID_DOCUMENT = e.ID_COMPANY,
+                    P_ID_DOCUMENT = e.ID_DOCUMENT,
                     P_DOCUMENT_DESCRIPTION = e.DOCUMENT_DESCRIPTION,
                     P_ABREVIATURE = e.ABREVIATURE,
                     P_CODE_NIF = e.CODE_NIF,

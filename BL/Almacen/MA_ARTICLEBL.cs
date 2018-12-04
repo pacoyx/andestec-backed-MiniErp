@@ -16,12 +16,14 @@ namespace BL.Almacen
         public EMA_ARTICLE ListarxId(EMA_ARTICLE ee) => MA_ARTICLEDA.GetByid(ee);
         public List<EMA_ARTICLE> ListarxNombre(EMA_ARTICLE ee)
         {
-            if (ee.DESCRIPTION_ARTICLE == "@")
+            if (ee.DESCRIPTION_ARTICLE == "9z")
             {
-                return MA_ARTICLEDA.GetAll(ee);
+                return MA_ARTICLEDA.GetAll(ee).OrderBy(x => x.DESCRIPTION_ARTICLE).ToList();
             }
-            else {
-                return MA_ARTICLEDA.GetAll(ee).Where(p => p.DESCRIPTION_ARTICLE.Contains(ee.DESCRIPTION_ARTICLE)).ToList();
+            else
+            {
+                return MA_ARTICLEDA.GetAll(ee).Where(p => p.DESCRIPTION_ARTICLE.ToLower().
+                Contains(ee.DESCRIPTION_ARTICLE.ToLower())).OrderBy(x => x.DESCRIPTION_ARTICLE).ToList();
             }
         }
         

@@ -53,9 +53,9 @@ namespace WA_AndesTec.Controllers
         }
         
         [HttpPost, Route("")]
-        public void Post([FromBody]ETRA_GUIAING value)
+        public string Post([FromBody]ETRA_GUIAING value)
         {
-            negocio.Registrar(value);
+            return negocio.Registrar(value);
         }
 
         public void Put(int id, [FromBody]string value) { }

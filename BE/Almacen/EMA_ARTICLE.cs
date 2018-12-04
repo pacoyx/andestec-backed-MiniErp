@@ -29,5 +29,6 @@ namespace BE.Almacen
         public string AMODIFICO { get; set; }
         public string AFECMOD { get; set; }
         public string AISSERVICE { get; set; }
+        public string ISTATUS { get; set; }
     }
 }

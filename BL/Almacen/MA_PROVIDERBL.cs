@@ -14,6 +14,15 @@ namespace BL.Almacen
         public void Eliminar(EMA_PROVIDER ee) { MA_PROVIDERDA.Delete(ee); }
         public List<EMA_PROVIDER> Listar(EMA_PROVIDER ee) { return MA_PROVIDERDA.GetAll(ee); }
         public EMA_PROVIDER ListarxId(EMA_PROVIDER ee) => MA_PROVIDERDA.GetByid(ee);
-        public List<EMA_PROVIDER> ListarxPatron(EMA_PROVIDER ee) { return MA_PROVIDERDA.GetAll(ee).Where(p=>p.DESCRIPTION_PROVIDER.Contains(ee.DESCRIPTION_PROVIDER)).ToList(); }
+        public List<EMA_PROVIDER> ListarxPatron(EMA_PROVIDER ee) {
+            if (ee.DESCRIPTION_PROVIDER == "9z") {
+                return MA_PROVIDERDA.GetAll(ee).OrderBy(x => x.DESCRIPTION_PROVIDER).ToList();
+            }
+            else {
+                return MA_PROVIDERDA.GetAll(ee).Where(p => p.DESCRIPTION_PROVIDER.ToLower().
+                Contains(ee.DESCRIPTION_PROVIDER.ToLower())).OrderBy(x => x.DESCRIPTION_PROVIDER).ToList();
+            }
+            
+        }
     }
 }
