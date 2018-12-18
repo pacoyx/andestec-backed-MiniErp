@@ -11,5 +11,6 @@ namespace BE.Almacen
         public int ID_COMPANY { get; set; }
         public string ID_UNIT { get; set; }
         public string DESCRIPTION_UNIT { get; set; }
+        public string COD_SUNAT { get; set; }
     }
 }

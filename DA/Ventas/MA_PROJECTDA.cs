@@ -12,48 +12,66 @@ namespace DA.Ventas
 {
     public static class MA_PROJECTDA
     {
-        public static void Insert(EMA_PROJECT e)
+        public static string Insert(EMA_PROJECT e)
         {
-            using (SqlConnection cnx = new SqlConnection(Utilidad.getCadenaCnx()))
+            string rpta = "ok";
+            try
             {
-                string sql = "SP_I_MA_PROJECT";
-                cnx.Execute(sql, new
+                using (SqlConnection cnx = new SqlConnection(Utilidad.getCadenaCnx()))
                 {
-                    P_PJ_ID = e.PJ_ID,
-                    P_PJ_DES = e.PJ_DES,
-                    P_PJ_IDCOMPANY = e.PJ_IDCOMPANY
-                },
-                            commandType: CommandType.StoredProcedure);
+                    string sql = "SP_I_MA_PROJECT";
+                    cnx.Execute(sql, new
+                    {
+                        P_PJ_ID = e.PJ_ID,
+                        P_PJ_DES = e.PJ_DES,
+                        P_PJ_IDCOMPANY = e.PJ_IDCOMPANY
+                    },
+                                commandType: CommandType.StoredProcedure);
+                }
             }
+            catch (Exception ex) { rpta = ex.Message; }
+            return rpta;
         }
 
-        public static void Update(EMA_PROJECT e)
+        public static string Update(EMA_PROJECT e)
         {
-            using (SqlConnection cnx = new SqlConnection(Utilidad.getCadenaCnx()))
+            string rpta = "ok";
+            try
             {
-                string sql = "SP_U_MA_PROJECT";
-                cnx.Execute(sql, new
+                using (SqlConnection cnx = new SqlConnection(Utilidad.getCadenaCnx()))
                 {
-                    P_PJ_ID = e.PJ_ID,
-                    P_PJ_DES = e.PJ_DES,
-                    P_PJ_IDCOMPANY = e.PJ_IDCOMPANY
-                },
-                            commandType: CommandType.StoredProcedure);
+                    string sql = "SP_U_MA_PROJECT";
+                    cnx.Execute(sql, new
+                    {
+                        P_PJ_ID = e.PJ_ID,
+                        P_PJ_DES = e.PJ_DES,
+                        P_PJ_IDCOMPANY = e.PJ_IDCOMPANY
+                    },
+                                commandType: CommandType.StoredProcedure);
+                }
             }
+            catch (Exception ex) { rpta = ex.Message; }
+            return rpta;
         }
 
-        public static void Delete(EMA_PROJECT e)
+        public static string Delete(EMA_PROJECT e)
         {
-            using (SqlConnection cnx = new SqlConnection(Utilidad.getCadenaCnx()))
+            string rpta = "ok";
+            try
             {
-                string sql = "SP_D_MA_PROJECT";
-                cnx.Execute(sql, new
+                using (SqlConnection cnx = new SqlConnection(Utilidad.getCadenaCnx()))
                 {
-                    P_PJ_ID = e.PJ_ID,                    
-                    P_PJ_IDCOMPANY = e.PJ_IDCOMPANY
-                },
-                            commandType: CommandType.StoredProcedure);
+                    string sql = "SP_D_MA_PROJECT";
+                    cnx.Execute(sql, new
+                    {
+                        P_PJ_ID = e.PJ_ID,
+                        P_PJ_IDCOMPANY = e.PJ_IDCOMPANY
+                    },
+                                commandType: CommandType.StoredProcedure);
+                }
             }
+            catch (Exception ex) { rpta = ex.Message; }
+            return rpta;
         }
 
         public static List<EMA_PROJECT> GetAll(EMA_PROJECT e)

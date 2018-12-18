@@ -14,8 +14,8 @@ namespace BL.Almacen
             return TRA_WAREHOUSEDA.Insert(guia);
         }
 
-        public List<ERE_LISTA01> Listar(int ee) {
-            return TRA_WAREHOUSEDA.GetAll(ee);
+        public List<ERE_LISTA01> Listar(int ide, string alm, int ayo, int mes) {
+            return TRA_WAREHOUSEDA.GetAll(ide, alm, ayo, mes);
         }
 
         public List<ERE_LISTA02> ListarStockxAlmacen(int ide, string alm)

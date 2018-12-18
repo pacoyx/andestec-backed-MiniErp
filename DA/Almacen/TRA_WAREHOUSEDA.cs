@@ -88,13 +88,19 @@ namespace DA.Almacen
             return rpta;
         }
 
-        public static List<ERE_LISTA01> GetAll(int emp)
+        public static List<ERE_LISTA01> GetAll(int emp,string alm,int ayo,int mes)
         {
             var sql = "SP_S_TRA_WAREHOUSE";
             using (SqlConnection cnx = new SqlConnection(Utilidad.getCadenaCnx()))
             {
                 cnx.Open();
-                return cnx.Query<ERE_LISTA01>(sql, new { P_ID_COMPANY = emp }, commandType: CommandType.StoredProcedure).ToList();
+                return cnx.Query<ERE_LISTA01>(sql, new
+                {
+                    P_ID_COMPANY = emp,
+                    P_ID_WAREHOUSE = alm,
+                    P_AYO = ayo,
+                    P_MES = mes
+                }, commandType: CommandType.StoredProcedure).ToList();
             }
         }
 

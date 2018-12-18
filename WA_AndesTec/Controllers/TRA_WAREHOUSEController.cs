@@ -16,10 +16,10 @@ namespace WA_AndesTec.Controllers
     {
         TRA_WAREHOUSEBL negocio = new TRA_WAREHOUSEBL();
 
-        [HttpGet, Route("{ide}/documentos")]
-        public IEnumerable<ERE_LISTA01> Get(int ide)
+        [HttpGet, Route("{ide}/{alm}/{ayo}/{mes}/documentos")]
+        public IEnumerable<ERE_LISTA01> Get(int ide, string alm, int ayo, int mes)
         {
-            return negocio.Listar(ide);
+            return negocio.Listar(ide, alm, ayo, mes);
         }
 
         [HttpGet, Route("{ide}/Stock/{alm}")]

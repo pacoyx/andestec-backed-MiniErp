@@ -12,50 +12,68 @@ namespace DA.Almacen
 {
     public static class MA_WAREHOUSEDA
     {
-        public static void Insert(EMA_WAREHOUSE e)
+        public static string Insert(EMA_WAREHOUSE e)
         {
-            using (SqlConnection cnx = new SqlConnection(Utilidad.getCadenaCnx()))
+            string rpta = "ok";
+            try
             {
-                string sql = "SP_I_MA_WAREHOUSE";
-                cnx.Execute(sql, new
+                using (SqlConnection cnx = new SqlConnection(Utilidad.getCadenaCnx()))
                 {
-                    P_ID_WAREHOUSE = e.ID_WAREHOUSE,
-                    P_DESCRIPCION = e.DESCRIPCION,
-                    P_DIRECCION = e.DIRECCION,
-                    P_ID_COMPANY = e.ID_COMPANY
-                },
-                            commandType: CommandType.StoredProcedure);               
+                    string sql = "SP_I_MA_WAREHOUSE";
+                    cnx.Execute(sql, new
+                    {
+                        P_ID_WAREHOUSE = e.ID_WAREHOUSE,
+                        P_DESCRIPCION = e.DESCRIPCION,
+                        P_DIRECCION = e.DIRECCION,
+                        P_ID_COMPANY = e.ID_COMPANY
+                    },
+                                commandType: CommandType.StoredProcedure);
+                }
             }
+            catch (Exception ex) { rpta = ex.Message; }
+            return rpta;
         }
 
-        public static void Update(EMA_WAREHOUSE e)
+        public static string Update(EMA_WAREHOUSE e)
         {
-            using (SqlConnection cnx = new SqlConnection(Utilidad.getCadenaCnx()))
+            string rpta = "ok";
+            try
             {
-                string sql = "SP_U_MA_WAREHOUSE";
-                cnx.Execute(sql, new
+                using (SqlConnection cnx = new SqlConnection(Utilidad.getCadenaCnx()))
                 {
-                    P_ID_WAREHOUSE = e.ID_WAREHOUSE,
-                    P_DESCRIPCION = e.DESCRIPCION,
-                    P_DIRECCION = e.DIRECCION,
-                    P_ID_COMPANY = e.ID_COMPANY
-                },
-                            commandType: CommandType.StoredProcedure);
+                    string sql = "SP_U_MA_WAREHOUSE";
+                    cnx.Execute(sql, new
+                    {
+                        P_ID_WAREHOUSE = e.ID_WAREHOUSE,
+                        P_DESCRIPCION = e.DESCRIPCION,
+                        P_DIRECCION = e.DIRECCION,
+                        P_ID_COMPANY = e.ID_COMPANY
+                    },
+                                commandType: CommandType.StoredProcedure);
+                }
             }
+            catch (Exception ex) { rpta = ex.Message; }
+            return rpta;
         }
 
-        public static void Delete(EMA_WAREHOUSE e)
+        public static string Delete(EMA_WAREHOUSE e)
         {
-            using (SqlConnection cnx = new SqlConnection(Utilidad.getCadenaCnx()))
+            string rpta = "ok";
+            try
             {
-                string sql = "SP_D_MA_WAREHOUSE";
-                cnx.Execute(sql, new
+                using (SqlConnection cnx = new SqlConnection(Utilidad.getCadenaCnx()))
                 {
-                    P_ID_WAREHOUSE = e.ID_WAREHOUSE,                    
-                    P_ID_COMPANY = e.ID_COMPANY
-                },
-                            commandType: CommandType.StoredProcedure);
+                    string sql = "SP_D_MA_WAREHOUSE";
+                    cnx.Execute(sql, new
+                    {
+                        P_ID_WAREHOUSE = e.ID_WAREHOUSE,
+                        P_ID_COMPANY = e.ID_COMPANY
+                    },
+                                commandType: CommandType.StoredProcedure);
+                }
             }
+            catch (Exception ex) { rpta = ex.Message; }
+            return rpta;
         }
         
         public static List<EMA_WAREHOUSE> GetAll(EMA_WAREHOUSE e)

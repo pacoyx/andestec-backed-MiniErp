@@ -11,57 +11,75 @@ using System.Data;
 namespace DA.Ventas
 {
     public static class MA_DOCUMENTSDA
-    {
-        public static void Insert(EMA_DOCUMENTS e)
+    {        
+        public static string Insert(EMA_DOCUMENTS e)
         {
-            using (SqlConnection cnx = new SqlConnection(Utilidad.getCadenaCnx()))
+            string rpta = "ok";
+            try
             {
-                string sql = "SP_I_MA_DOCUMENTS";
-                cnx.Execute(sql, new
+                using (SqlConnection cnx = new SqlConnection(Utilidad.getCadenaCnx()))
                 {
-                    P_ID_DOCUMENT = e.ID_DOCUMENT,
-                    P_DOCUMENT_DESCRIPTION = e.DOCUMENT_DESCRIPTION,
-                    P_ABREVIATURE = e.ABREVIATURE,
-                    P_CODE_NIF = e.CODE_NIF,
-                    P_CODE_ELECTRONIC = e.CODE_ELECTRONIC,
-                    P_ISTATUS = e.ISTATUS,
-                    P_ID_COMPANY = e.ID_COMPANY
-                },
-                            commandType: CommandType.StoredProcedure);
+                    string sql = "SP_I_MA_DOCUMENTS";
+                    cnx.Execute(sql, new
+                    {
+                        P_ID_DOCUMENT = e.ID_DOCUMENT,
+                        P_DOCUMENT_DESCRIPTION = e.DOCUMENT_DESCRIPTION,
+                        P_ABREVIATURE = e.ABREVIATURE,
+                        P_CODE_NIF = e.CODE_NIF,
+                        P_CODE_ELECTRONIC = e.CODE_ELECTRONIC,
+                        P_ISTATUS = e.ISTATUS,
+                        P_ID_COMPANY = e.ID_COMPANY
+                    },
+                                commandType: CommandType.StoredProcedure);
+                }
             }
+            catch (Exception ex) { rpta = ex.Message; }
+            return rpta;
+    }
+
+        public static string Update(EMA_DOCUMENTS e)
+        {
+            string rpta = "ok";
+            try
+            {
+                using (SqlConnection cnx = new SqlConnection(Utilidad.getCadenaCnx()))
+                {
+                    string sql = "SP_U_MA_DOCUMENTS";
+                    cnx.Execute(sql, new
+                    {
+                        P_ID_DOCUMENT = e.ID_DOCUMENT,
+                        P_DOCUMENT_DESCRIPTION = e.DOCUMENT_DESCRIPTION,
+                        P_ABREVIATURE = e.ABREVIATURE,
+                        P_CODE_NIF = e.CODE_NIF,
+                        P_CODE_ELECTRONIC = e.CODE_ELECTRONIC,
+                        P_ISTATUS = e.ISTATUS,
+                        P_ID_COMPANY = e.ID_COMPANY
+                    },
+                                commandType: CommandType.StoredProcedure);
+                }
+            }
+            catch (Exception ex) { rpta = ex.Message; }
+            return rpta;
         }
 
-        public static void Update(EMA_DOCUMENTS e)
+        public static string Delete(EMA_DOCUMENTS e)
         {
-            using (SqlConnection cnx = new SqlConnection(Utilidad.getCadenaCnx()))
+            string rpta = "ok";
+            try
             {
-                string sql = "SP_U_MA_DOCUMENTS";
-                cnx.Execute(sql, new
+                using (SqlConnection cnx = new SqlConnection(Utilidad.getCadenaCnx()))
                 {
-                    P_ID_DOCUMENT = e.ID_DOCUMENT,
-                    P_DOCUMENT_DESCRIPTION = e.DOCUMENT_DESCRIPTION,
-                    P_ABREVIATURE = e.ABREVIATURE,
-                    P_CODE_NIF = e.CODE_NIF,
-                    P_CODE_ELECTRONIC = e.CODE_ELECTRONIC,
-                    P_ISTATUS = e.ISTATUS,
-                    P_ID_COMPANY = e.ID_COMPANY
-                },
-                            commandType: CommandType.StoredProcedure);
+                    string sql = "SP_D_MA_DOCUMENTS";
+                    cnx.Execute(sql, new
+                    {
+                        P_ID_DOCUMENT = e.ID_COMPANY,
+                        P_ID_COMPANY = e.ID_COMPANY
+                    },
+                                commandType: CommandType.StoredProcedure);
+                }
             }
-        }
-
-        public static void Delete(EMA_DOCUMENTS e)
-        {
-            using (SqlConnection cnx = new SqlConnection(Utilidad.getCadenaCnx()))
-            {
-                string sql = "SP_D_MA_DOCUMENTS";
-                cnx.Execute(sql, new
-                {
-                    P_ID_DOCUMENT = e.ID_COMPANY,                    
-                    P_ID_COMPANY = e.ID_COMPANY
-                },
-                            commandType: CommandType.StoredProcedure);
-            }
+            catch (Exception ex) { rpta = ex.Message; }
+            return rpta;
         }
 
         public static List<EMA_DOCUMENTS> GetAll(EMA_DOCUMENTS e)

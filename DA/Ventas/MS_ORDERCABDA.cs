@@ -25,7 +25,7 @@ namespace DA.Ventas
                 cnx.Open();
                 SqlTransaction tr = cnx.BeginTransaction(IsolationLevel.Serializable);
                 try
-                {
+                {                    
                     string sql = "SP_I_MS_ORDERCAB";
                     idorder = cnx.ExecuteScalar<Int32>(sql, new
                     {

@@ -10,8 +10,8 @@ namespace BL.Almacen
 {
     public class MA_FAMILYBL
     {
-        public void Registrar(EMA_FAMILY ee) { if (MA_FAMILYDA.GetByid(ee) == null) { MA_FAMILYDA.Insert(ee); } else { MA_FAMILYDA.Update(ee); } }
-        public void Eliminar(EMA_FAMILY ee) { MA_FAMILYDA.Delete(ee); }
+        public string Registrar(EMA_FAMILY ee) { if (MA_FAMILYDA.GetByid(ee) == null) { return MA_FAMILYDA.Insert(ee); } else { return MA_FAMILYDA.Update(ee); } }
+        public string Eliminar(EMA_FAMILY ee) { return MA_FAMILYDA.Delete(ee); }
         public List<EMA_FAMILY> Listar(EMA_FAMILY ee) { return MA_FAMILYDA.GetAll(ee); } 
         public EMA_FAMILY ListarxId(EMA_FAMILY ee) => MA_FAMILYDA.GetByid(ee);
     }

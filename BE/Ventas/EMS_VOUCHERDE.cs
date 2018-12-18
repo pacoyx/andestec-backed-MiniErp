@@ -18,5 +18,6 @@ namespace BE.Ventas
         public string VD_COMMENT { get; set; }
         public string VD_ISTATUS { get; set; }
         public int VD_IDORDER { get; set; }
+        public string VD_IDLOTE { get; set; }
     }
 }

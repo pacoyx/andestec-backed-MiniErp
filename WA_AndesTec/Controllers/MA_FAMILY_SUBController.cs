@@ -30,21 +30,21 @@ namespace WA_AndesTec.Controllers
         }
 
         [HttpPost, Route("")]
-        public void Post([FromBody]EMA_FAMILY_SUB value)
+        public string Post([FromBody]EMA_FAMILY_SUB value)
         {
-            negocio.Registrar(value);
+            return negocio.Registrar(value);
         }
 
         [HttpPut, Route("")]
-        public void Put([FromBody]EMA_FAMILY_SUB value)
+        public string Put([FromBody]EMA_FAMILY_SUB value)
         {
-            negocio.Registrar(value);
+            return negocio.Registrar(value);
         }
 
         [HttpDelete, Route("{ide}/{id}")]
-        public void Delete(int ide, int id)
+        public string Delete(int ide, int id)
         {
-            negocio.Eliminar(new EMA_FAMILY_SUB { ID_COMPANY = ide, ID_FAMILY_SUB = id });
+            return negocio.Eliminar(new EMA_FAMILY_SUB { ID_COMPANY = ide, ID_FAMILY_SUB = id });
         }
     }
 }

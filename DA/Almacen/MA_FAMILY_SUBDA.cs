@@ -12,41 +12,56 @@ namespace DA.Almacen
 {
     public static class MA_FAMILY_SUBDA
     {
-        public static void Insert(EMA_FAMILY_SUB e)
+        public static string Insert(EMA_FAMILY_SUB e)
         {
-            using (SqlConnection cnx = new SqlConnection(Utilidad.getCadenaCnx()))
+            string rpta = "ok";
+            try
             {
-                string sql = "SP_I_MA_FAMILY_SUB";
-                cnx.Execute(sql, new
+                using (SqlConnection cnx = new SqlConnection(Utilidad.getCadenaCnx()))
                 {
-                    P_ID_COMPANY = e.ID_COMPANY,
-                    P_ID_FAMILY = e.ID_FAMILY,
-                    P_ID_FAMILY_SUB = e.ID_FAMILY_SUB,
-                    P_DESCRIPTION_FAMILY_SUB = e.DESCRIPTION_FAMILY_SUB
-                },
-                            commandType: CommandType.StoredProcedure);               
+                    string sql = "SP_I_MA_FAMILY_SUB";
+                    cnx.Execute(sql, new
+                    {
+                        P_ID_COMPANY = e.ID_COMPANY,
+                        P_ID_FAMILY = e.ID_FAMILY,
+                        P_ID_FAMILY_SUB = e.ID_FAMILY_SUB,
+                        P_DESCRIPTION_FAMILY_SUB = e.DESCRIPTION_FAMILY_SUB
+                    },
+                                commandType: CommandType.StoredProcedure);
+                }
             }
+            catch (Exception ex) { rpta = ex.Message; }
+            return rpta;
         }
 
-        public static void Update(EMA_FAMILY_SUB e)
+        public static string Update(EMA_FAMILY_SUB e)
         {
-            using (SqlConnection cnx = new SqlConnection(Utilidad.getCadenaCnx()))
+            string rpta = "ok";
+            try
             {
-                string sql = "SP_U_MA_FAMILY_SUB";
-                cnx.Execute(sql, new
+                using (SqlConnection cnx = new SqlConnection(Utilidad.getCadenaCnx()))
                 {
-                    P_ID_COMPANY = e.ID_COMPANY,
-                    P_ID_FAMILY = e.ID_FAMILY,
-                    P_ID_FAMILY_SUB = e.ID_FAMILY_SUB,
-                    P_DESCRIPTION_FAMILY_SUB = e.DESCRIPTION_FAMILY_SUB
-                },
-                            commandType: CommandType.StoredProcedure);
+                    string sql = "SP_U_MA_FAMILY_SUB";
+                    cnx.Execute(sql, new
+                    {
+                        P_ID_COMPANY = e.ID_COMPANY,
+                        P_ID_FAMILY = e.ID_FAMILY,
+                        P_ID_FAMILY_SUB = e.ID_FAMILY_SUB,
+                        P_DESCRIPTION_FAMILY_SUB = e.DESCRIPTION_FAMILY_SUB
+                    },
+                                commandType: CommandType.StoredProcedure);
+                }
             }
+            catch (Exception ex) { rpta = ex.Message; }
+            return rpta;
         }
 
-        public static void Delete(EMA_FAMILY_SUB e)
+        public static string Delete(EMA_FAMILY_SUB e)
         {
-            using (SqlConnection cnx = new SqlConnection(Utilidad.getCadenaCnx()))
+            string rpta = "ok";
+            try
+            {
+                using (SqlConnection cnx = new SqlConnection(Utilidad.getCadenaCnx()))
             {
                 string sql = "SP_D_MA_FAMILY_SUB";
                 cnx.Execute(sql, new
@@ -56,6 +71,9 @@ namespace DA.Almacen
                 },
                             commandType: CommandType.StoredProcedure);
             }
+        }
+            catch (Exception ex) { rpta = ex.Message; }
+            return rpta;
         }
 
         public static List<EMA_FAMILY_SUB> GetAll(EMA_FAMILY_SUB e)

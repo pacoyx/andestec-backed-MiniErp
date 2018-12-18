@@ -12,48 +12,68 @@ namespace DA.Almacen
 {
     public static class MA_UNITSDA
     {
-        public static void Insert(EMA_UNITS e)
+        public static string Insert(EMA_UNITS e)
         {
-            using (SqlConnection cnx = new SqlConnection(Utilidad.getCadenaCnx()))
+            string rpta = "ok";
+            try
             {
-                string sql = "SP_I_MA_UNITS";
-                cnx.Execute(sql, new
+                using (SqlConnection cnx = new SqlConnection(Utilidad.getCadenaCnx()))
                 {
-                    P_ID_COMPANY = e.ID_COMPANY,
-                    P_ID_UNIT = e.ID_UNIT,
-                    P_DESCRIPTION_UNIT = e.DESCRIPTION_UNIT
-                },
-                            commandType: CommandType.StoredProcedure);                
+                    string sql = "SP_I_MA_UNITS";
+                    cnx.Execute(sql, new
+                    {
+                        P_ID_COMPANY = e.ID_COMPANY,
+                        P_ID_UNIT = e.ID_UNIT,
+                        P_DESCRIPTION_UNIT = e.DESCRIPTION_UNIT,
+                        P_COD_SUNAT = e.COD_SUNAT
+                    },
+                                commandType: CommandType.StoredProcedure);
+                }
             }
+            catch (Exception ex) { rpta = ex.Message; }
+            return rpta;
         }
 
-        public static void Update(EMA_UNITS e)
+        public static string Update(EMA_UNITS e)
         {
-            using (SqlConnection cnx = new SqlConnection(Utilidad.getCadenaCnx()))
+            string rpta = "ok";
+            try
             {
-                string sql = "SP_U_MA_UNITS";
-                cnx.Execute(sql, new
+                using (SqlConnection cnx = new SqlConnection(Utilidad.getCadenaCnx()))
                 {
-                    P_ID_COMPANY = e.ID_COMPANY,
-                    P_ID_UNIT = e.ID_UNIT,
-                    P_DESCRIPTION_UNIT = e.DESCRIPTION_UNIT
-                },
-                            commandType: CommandType.StoredProcedure);
+                    string sql = "SP_U_MA_UNITS";
+                    cnx.Execute(sql, new
+                    {
+                        P_ID_COMPANY = e.ID_COMPANY,
+                        P_ID_UNIT = e.ID_UNIT,
+                        P_DESCRIPTION_UNIT = e.DESCRIPTION_UNIT,
+                        P_COD_SUNAT = e.COD_SUNAT
+                    },
+                                commandType: CommandType.StoredProcedure);
+                }
             }
+            catch (Exception ex) { rpta = ex.Message; }
+            return rpta;
         }
 
-        public static void Delete(EMA_UNITS e)
+        public static string Delete(EMA_UNITS e)
         {
-            using (SqlConnection cnx = new SqlConnection(Utilidad.getCadenaCnx()))
+            string rpta = "ok";
+            try
             {
-                string sql = "SP_D_MA_UNITS";
-                cnx.Execute(sql, new
+                using (SqlConnection cnx = new SqlConnection(Utilidad.getCadenaCnx()))
                 {
-                    P_ID_COMPANY = e.ID_COMPANY,
-                    P_ID_UNIT = e.ID_UNIT                    
-                },
-                            commandType: CommandType.StoredProcedure);
+                    string sql = "SP_D_MA_UNITS";
+                    cnx.Execute(sql, new
+                    {
+                        P_ID_COMPANY = e.ID_COMPANY,
+                        P_ID_UNIT = e.ID_UNIT
+                    },
+                                commandType: CommandType.StoredProcedure);
+                }
             }
+            catch (Exception ex) { rpta = ex.Message; }
+            return rpta;
         }
 
         public static List<EMA_UNITS> GetAll(EMA_UNITS e)

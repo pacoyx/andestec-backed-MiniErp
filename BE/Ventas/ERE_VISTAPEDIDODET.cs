@@ -18,5 +18,7 @@ namespace BE.Ventas
         public double TOTAL { get; set; }
         public string ESTADO { get; set; }
         public double CANTIDADDES { get; set; }
+        public string ESLOTE { get; set; }
+
     }
 }

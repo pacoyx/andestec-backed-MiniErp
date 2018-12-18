@@ -12,71 +12,89 @@ namespace DA.Almacen
 {
     public static class MA_PROVIDERDA
     {
-        public static void Insert(EMA_PROVIDER e)
+        public static string Insert(EMA_PROVIDER e)
         {
-            using (SqlConnection cnx = new SqlConnection(Utilidad.getCadenaCnx()))
+            string rpta = "ok";
+            try
             {
-                string sql = "SP_I_MA_PROVIDER";
-                cnx.Execute(sql, new
-                {                    
-                    P_ID_COMPANY = e.ID_COMPANY,
-                    P_DESCRIPTION_PROVIDER = e.DESCRIPTION_PROVIDER.Trim(),
-                    P_DOCUMENT_TYPE_PROVIDER = e.DOCUMENT_TYPE_PROVIDER.Trim(),
-                    P_NUMBER_DOCUMENT = e.NUMBER_DOCUMENT.Trim(),
-                    P_COMMERCIAL_TYPE = e.COMMERCIAL_TYPE.Trim(),
-                    P_PROVIDER_TYPE = e.PROVIDER_TYPE.Trim(),
-                    P_CONTACT = e.CONTACT.Trim(),
-                    P_MOVIL_CONTACT = e.MOVIL_CONTACT.Trim(),
-                    P_EMAIL = e.EMAIL.Trim(),
-                    P_ISTATUS = e.ISTATUS,
-                    P_AUSUARIO = e.AUSUARIO.Trim(),
-                    P_AFECREG = e.AFECREG.Trim(),
-                    P_AMODIFICO = e.AMODIFICO.Trim(),
-                    P_AFECMOD = e.AFECMOD.Trim()
-                },
-                            commandType: CommandType.StoredProcedure);
+                using (SqlConnection cnx = new SqlConnection(Utilidad.getCadenaCnx()))
+                {
+                    string sql = "SP_I_MA_PROVIDER";
+                    cnx.Execute(sql, new
+                    {
+                        P_ID_COMPANY = e.ID_COMPANY,
+                        P_DESCRIPTION_PROVIDER = e.DESCRIPTION_PROVIDER.Trim(),
+                        P_DOCUMENT_TYPE_PROVIDER = e.DOCUMENT_TYPE_PROVIDER.Trim(),
+                        P_NUMBER_DOCUMENT = e.NUMBER_DOCUMENT.Trim(),
+                        P_COMMERCIAL_TYPE = e.COMMERCIAL_TYPE.Trim(),
+                        P_PROVIDER_TYPE = e.PROVIDER_TYPE.Trim(),
+                        P_CONTACT = e.CONTACT.Trim(),
+                        P_MOVIL_CONTACT = e.MOVIL_CONTACT.Trim(),
+                        P_EMAIL = e.EMAIL.Trim(),
+                        P_ISTATUS = e.ISTATUS,
+                        P_AUSUARIO = e.AUSUARIO.Trim(),
+                        P_AFECREG = e.AFECREG.Trim(),
+                        P_AMODIFICO = e.AMODIFICO.Trim(),
+                        P_AFECMOD = e.AFECMOD.Trim()
+                    },
+                                commandType: CommandType.StoredProcedure);
+                }
             }
+            catch (Exception ex) { rpta = ex.Message; }
+            return rpta;
         }
 
-        public static void Update(EMA_PROVIDER e)
+        public static string Update(EMA_PROVIDER e)
         {
-            using (SqlConnection cnx = new SqlConnection(Utilidad.getCadenaCnx()))
+            string rpta = "ok";
+            try
             {
-                string sql = "SP_U_MA_PROVIDER";
-                cnx.Execute(sql, new
+                using (SqlConnection cnx = new SqlConnection(Utilidad.getCadenaCnx()))
                 {
-                    P_ID_PROVIDER = e.ID_PROVIDER,
-                    P_ID_COMPANY = e.ID_COMPANY,
-                    P_DESCRIPTION_PROVIDER = e.DESCRIPTION_PROVIDER.Trim(),
-                    P_DOCUMENT_TYPE_PROVIDER = e.DOCUMENT_TYPE_PROVIDER.Trim(),
-                    P_NUMBER_DOCUMENT = e.NUMBER_DOCUMENT.Trim(),
-                    P_COMMERCIAL_TYPE = e.COMMERCIAL_TYPE.Trim(),
-                    P_PROVIDER_TYPE = e.PROVIDER_TYPE.Trim(),
-                    P_CONTACT = e.CONTACT.Trim(),
-                    P_MOVIL_CONTACT = e.MOVIL_CONTACT.Trim(),
-                    P_EMAIL = e.EMAIL.Trim(),
-                    P_ISTATUS = e.ISTATUS,
-                    P_AUSUARIO = e.AUSUARIO.Trim(),
-                    P_AFECREG = e.AFECREG.Trim(),
-                    P_AMODIFICO = e.AMODIFICO.Trim(),
-                    P_AFECMOD = e.AFECMOD.Trim()
-                },
-                            commandType: CommandType.StoredProcedure);
+                    string sql = "SP_U_MA_PROVIDER";
+                    cnx.Execute(sql, new
+                    {
+                        P_ID_PROVIDER = e.ID_PROVIDER,
+                        P_ID_COMPANY = e.ID_COMPANY,
+                        P_DESCRIPTION_PROVIDER = e.DESCRIPTION_PROVIDER.Trim(),
+                        P_DOCUMENT_TYPE_PROVIDER = e.DOCUMENT_TYPE_PROVIDER.Trim(),
+                        P_NUMBER_DOCUMENT = e.NUMBER_DOCUMENT.Trim(),
+                        P_COMMERCIAL_TYPE = e.COMMERCIAL_TYPE.Trim(),
+                        P_PROVIDER_TYPE = e.PROVIDER_TYPE.Trim(),
+                        P_CONTACT = e.CONTACT.Trim(),
+                        P_MOVIL_CONTACT = e.MOVIL_CONTACT.Trim(),
+                        P_EMAIL = e.EMAIL.Trim(),
+                        P_ISTATUS = e.ISTATUS,
+                        P_AUSUARIO = e.AUSUARIO.Trim(),
+                        P_AFECREG = e.AFECREG.Trim(),
+                        P_AMODIFICO = e.AMODIFICO.Trim(),
+                        P_AFECMOD = e.AFECMOD.Trim()
+                    },
+                                commandType: CommandType.StoredProcedure);
+                }
             }
+            catch (Exception ex) { rpta = ex.Message; }
+            return rpta;
         }
 
-        public static void Delete(EMA_PROVIDER e)
+        public static string Delete(EMA_PROVIDER e)
         {
-            using (SqlConnection cnx = new SqlConnection(Utilidad.getCadenaCnx()))
+            string rpta = "ok";
+            try
             {
-                string sql = "SP_D_MA_PROVIDER";
-                cnx.Execute(sql, new
+                using (SqlConnection cnx = new SqlConnection(Utilidad.getCadenaCnx()))
                 {
-                    P_ID_PROVIDER = e.ID_PROVIDER,
-                    P_ID_COMPANY = e.ID_COMPANY
-                },
-                            commandType: CommandType.StoredProcedure);
+                    string sql = "SP_D_MA_PROVIDER";
+                    cnx.Execute(sql, new
+                    {
+                        P_ID_PROVIDER = e.ID_PROVIDER,
+                        P_ID_COMPANY = e.ID_COMPANY
+                    },
+                                commandType: CommandType.StoredProcedure);
+                }
             }
+            catch (Exception ex) { rpta = ex.Message; }
+            return rpta;
         }
 
         public static List<EMA_PROVIDER> GetAll(EMA_PROVIDER e)

@@ -12,57 +12,75 @@ namespace DA.Almacen
 {
     public static class MA_LOTDA
     {
-        public static void Insert(EMA_LOT e) {
-            using (SqlConnection cnx = new SqlConnection(Utilidad.getCadenaCnx()))
+        public static string Insert(EMA_LOT e) {
+            string rpta = "ok";
+            try
             {
-                string sql = "SP_I_MA_LOT";
-                cnx.Execute(sql, new
+                using (SqlConnection cnx = new SqlConnection(Utilidad.getCadenaCnx()))
                 {
-                    P_IDCOMPANY = e.IDCOMPANY,
-                    P_IDARTICLE = e.IDARTICLE,
-                    P_IDLOT = e.IDLOT,
-                    P_DESCRIPTION = e.DESCRIPTION,
-                    P_EXPEDITION_DATE = e.EXPEDITION_DATE,
-                    P_CADUCATE_DATE = e.CADUCATE_DATE,
-                    P_COMMENT =e.COMMENT,
-                    P_ISTATUS = e.ISTATUS
-                },
-                            commandType: CommandType.StoredProcedure);
+                    string sql = "SP_I_MA_LOT";
+                    cnx.Execute(sql, new
+                    {
+                        P_IDCOMPANY = e.IDCOMPANY,
+                        P_IDARTICLE = e.IDARTICLE,
+                        P_IDLOT = e.IDLOT,
+                        P_DESCRIPTION = e.DESCRIPTION,
+                        P_EXPEDITION_DATE = e.EXPEDITION_DATE,
+                        P_CADUCATE_DATE = e.CADUCATE_DATE,
+                        P_COMMENT = e.COMMENT,
+                        P_ISTATUS = e.ISTATUS
+                    },
+                                commandType: CommandType.StoredProcedure);
+                }
             }
+            catch (Exception ex) { rpta = "error: " + ex.Message; }
+            return rpta;
         }
 
-        public static void Update(EMA_LOT e)
+        public static string Update(EMA_LOT e)
         {
-            using (SqlConnection cnx = new SqlConnection(Utilidad.getCadenaCnx()))
+            string rpta = "ok";
+            try
             {
-                string sql = "SP_U_MA_LOT";
-                cnx.Execute(sql, new
+                using (SqlConnection cnx = new SqlConnection(Utilidad.getCadenaCnx()))
                 {
-                    P_IDCOMPANY = e.IDCOMPANY,
-                    P_IDARTICLE = e.IDARTICLE,
-                    P_IDLOT = e.IDLOT,
-                    P_DESCRIPTION = e.DESCRIPTION,
-                    P_EXPEDITION_DATE = e.EXPEDITION_DATE,
-                    P_CADUCATE_DATE = e.CADUCATE_DATE,
-                    P_COMMENT = e.COMMENT,
-                    P_ISTATUS = e.ISTATUS
-                },
-                            commandType: CommandType.StoredProcedure);
+                    string sql = "SP_U_MA_LOT";
+                    cnx.Execute(sql, new
+                    {
+                        P_IDCOMPANY = e.IDCOMPANY,
+                        P_IDARTICLE = e.IDARTICLE,
+                        P_IDLOT = e.IDLOT,
+                        P_DESCRIPTION = e.DESCRIPTION,
+                        P_EXPEDITION_DATE = e.EXPEDITION_DATE,
+                        P_CADUCATE_DATE = e.CADUCATE_DATE,
+                        P_COMMENT = e.COMMENT,
+                        P_ISTATUS = e.ISTATUS
+                    },
+                                commandType: CommandType.StoredProcedure);
+                }
             }
+            catch (Exception ex) { rpta = "error: " + ex.Message; }
+            return rpta;
         }
 
-        public static void Delete(EMA_LOT e)
+        public static string Delete(EMA_LOT e)
         {
-            using (SqlConnection cnx = new SqlConnection(Utilidad.getCadenaCnx()))
+            string rpta = "ok";
+            try
             {
-                string sql = "SP_D_MA_LOT";
-                cnx.Execute(sql, new
+                using (SqlConnection cnx = new SqlConnection(Utilidad.getCadenaCnx()))
                 {
-                    P_IDCOMPANY = e.IDCOMPANY,                    
-                    P_IDLOT = e.IDLOT                    
-                },
-                            commandType: CommandType.StoredProcedure);
+                    string sql = "SP_D_MA_LOT";
+                    cnx.Execute(sql, new
+                    {
+                        P_IDCOMPANY = e.IDCOMPANY,
+                        P_IDLOT = e.IDLOT
+                    },
+                                commandType: CommandType.StoredProcedure);
+                }
             }
+            catch (Exception ex) { rpta = "error: " + ex.Message; }
+            return rpta;
         }
 
         public static List<EMA_LOT> GetAll(EMA_LOT e)

@@ -12,48 +12,68 @@ namespace DA.Almacen
 {
     public static class MA_CENTER_COSTDA
     {
-        public static void Insert(EMA_CENTER_COST e)
+        
+        
+        public static string Insert(EMA_CENTER_COST e)
         {
-            using (SqlConnection cnx = new SqlConnection(Utilidad.getCadenaCnx()))
+            string rpta = "ok";
+            try
             {
-                string sql = "SP_I_MA_CENTER_COST";
-                cnx.Execute(sql, new
+                using (SqlConnection cnx = new SqlConnection(Utilidad.getCadenaCnx()))
                 {
-                    P_ID_COMPANY = e.ID_COMPANY,
-                    P_ID_CENTER_COST = e.ID_CENTER_COST,
-                    P_DESCRIPTION_CENTER_COST = e.DESCRIPTION_CENTER_COST
-                },
-                            commandType: CommandType.StoredProcedure);               
+                    string sql = "SP_I_MA_CENTER_COST";
+                    cnx.Execute(sql, new
+                    {
+                        P_ID_COMPANY = e.ID_COMPANY,
+                        P_ID_CENTER_COST = e.ID_CENTER_COST,
+                        P_DESCRIPTION_CENTER_COST = e.DESCRIPTION_CENTER_COST
+                    },
+                                commandType: CommandType.StoredProcedure);
+                }
             }
+            catch (Exception ex) { rpta = "ok"; }
+            return rpta;
         }
 
-        public static void Update(EMA_CENTER_COST e)
+        public static string Update(EMA_CENTER_COST e)
         {
-            using (SqlConnection cnx = new SqlConnection(Utilidad.getCadenaCnx()))
+            string rpta = "ok";
+            try
             {
-                string sql = "SP_U_MA_CENTER_COST";
-                cnx.Execute(sql, new
+                using (SqlConnection cnx = new SqlConnection(Utilidad.getCadenaCnx()))
                 {
-                    P_ID_COMPANY = e.ID_COMPANY,
-                    P_ID_CENTER_COST = e.ID_CENTER_COST,
-                    P_DESCRIPTION_CENTER_COST = e.DESCRIPTION_CENTER_COST
-                },
-                            commandType: CommandType.StoredProcedure);
+                    string sql = "SP_U_MA_CENTER_COST";
+                    cnx.Execute(sql, new
+                    {
+                        P_ID_COMPANY = e.ID_COMPANY,
+                        P_ID_CENTER_COST = e.ID_CENTER_COST,
+                        P_DESCRIPTION_CENTER_COST = e.DESCRIPTION_CENTER_COST
+                    },
+                                commandType: CommandType.StoredProcedure);
+                }
             }
+            catch (Exception ex) { rpta = "ok"; }
+            return rpta;
         }
 
-        public static void Delete(EMA_CENTER_COST e)
+        public static string Delete(EMA_CENTER_COST e)
         {
-            using (SqlConnection cnx = new SqlConnection(Utilidad.getCadenaCnx()))
+            string rpta = "ok";
+            try
             {
-                string sql = "SP_D_MA_CENTER_COST";
-                cnx.Execute(sql, new
+                using (SqlConnection cnx = new SqlConnection(Utilidad.getCadenaCnx()))
                 {
-                    P_ID_COMPANY = e.ID_COMPANY,
-                    P_ID_CENTER_COST = e.ID_CENTER_COST                    
-                },
-                            commandType: CommandType.StoredProcedure);
-            }
+                    string sql = "SP_D_MA_CENTER_COST";
+                    cnx.Execute(sql, new
+                    {
+                        P_ID_COMPANY = e.ID_COMPANY,
+                        P_ID_CENTER_COST = e.ID_CENTER_COST
+                    },
+                                commandType: CommandType.StoredProcedure);
+                }
+        }
+            catch (Exception ex) { rpta = "ok"; }
+            return rpta;
         }
 
         public static List<EMA_CENTER_COST> GetAll(EMA_CENTER_COST e)

@@ -10,8 +10,8 @@ namespace BL.Almacen
 {
     public class MA_WAREHOUSEBL
     {
-        public void Registrar(EMA_WAREHOUSE ee) { if (MA_WAREHOUSEDA.GetByid(ee) == null) { MA_WAREHOUSEDA.Insert(ee); } else { MA_WAREHOUSEDA.Update(ee); } }
-        public void Eliminar(EMA_WAREHOUSE ee) { MA_WAREHOUSEDA.Delete(ee); }
+        public string Registrar(EMA_WAREHOUSE ee) { if (MA_WAREHOUSEDA.GetByid(ee) == null) {return MA_WAREHOUSEDA.Insert(ee); } else { return MA_WAREHOUSEDA.Update(ee); } }
+        public string Eliminar(EMA_WAREHOUSE ee) { return MA_WAREHOUSEDA.Delete(ee); }
         public List<EMA_WAREHOUSE> Listar(EMA_WAREHOUSE ee) { return MA_WAREHOUSEDA.GetAll(ee); }
         public EMA_WAREHOUSE ListarxId(EMA_WAREHOUSE ee) => MA_WAREHOUSEDA.GetByid(ee);
     }

@@ -37,26 +37,30 @@ namespace WA_AndesTec.Controllers
             return negocio.ListarxNombre(new EMA_ARTICLE { ID_COMPANY = ide, DESCRIPTION_ARTICLE = dato });            
         }
 
-
-        
-        [HttpPost, Route("")]
-        public void Post([FromBody]EMA_ARTICLE value)
+        [HttpGet, Route("{ide}/buscarLotes/{dato}")]
+        public IEnumerable<EMA_ARTICLE> GETBuscarPorNombreLotes(int ide, string dato)
         {
-            negocio.Registrar(value);
+            return negocio.ListarxNombreLotes(new EMA_ARTICLE { ID_COMPANY = ide, DESCRIPTION_ARTICLE = dato });
+        }
+
+        [HttpPost, Route("")]
+        public string Post([FromBody]EMA_ARTICLE value)
+        {
+           return negocio.Registrar(value);
         }
 
         
         [HttpPut, Route("{id}")]
-        public void Put(int id, [FromBody]EMA_ARTICLE value)
+        public string Put(int id, [FromBody]EMA_ARTICLE value)
         {
-            negocio.Registrar(value);
+           return negocio.Registrar(value);
         }
 
         
         [HttpDelete, Route("{ide}/{id}")]
-        public void Delete(int ide, int id)
+        public string Delete(int ide, int id)
         {
-            negocio.Eliminar(new EMA_ARTICLE { ID_ARTICLE = id, ID_COMPANY = ide });
+            return negocio.Eliminar(new EMA_ARTICLE { ID_ARTICLE = id, ID_COMPANY = ide });
         }
     }
 }

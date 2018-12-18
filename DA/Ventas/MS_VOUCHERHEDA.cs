@@ -18,6 +18,8 @@ namespace DA.Ventas
             EMS_VOUCHERHE c = eCompro.Cabecera;
             List<EMS_VOUCHERDE> d = eCompro.Detalle;
             Int32 idorder = 0;
+            Int32 idRegIdAlmacen = 0;
+            string IdAlmacen = "001";
 
             using (SqlConnection cnx = new SqlConnection(Utilidad.getCadenaCnx()))
             {
@@ -25,7 +27,12 @@ namespace DA.Ventas
                 SqlTransaction tr = cnx.BeginTransaction(IsolationLevel.Serializable);
                 try
                 {
-                    string sql = "SP_I_MS_VOUCHERHE";
+                    string sql = "SELECT ISNULL(SP_IDWAREHOUSE,'') AS 'ALMACEN' FROM MA_SALESPOINT WHERE SP_ID = '" + c.VH_IDSALESPOINT + "' AND SP_IDCOMPANY = " + c.VH_IDCOMPANY.ToString();
+
+                    IdAlmacen = cnx.ExecuteScalar<string>(sql, new { },tr, commandType: CommandType.Text);
+                    if (IdAlmacen == "") { IdAlmacen = "001"; }
+
+                    sql = "SP_I_MS_VOUCHERHE";
                     idorder = cnx.ExecuteScalar<Int32>(sql, new
                     {
                         P_VH_TDOC = c.VH_TDOC,
@@ -61,11 +68,11 @@ namespace DA.Ventas
                         P_VH_CHANGEAMOUNT = c.VH_CHANGEAMOUNT,
                         P_VH_SUBTOT = c.VH_SUBTOT,
                         P_VH_TAX = c.VH_TAX,
-                        P_VH_TOT = c.VH_TOT
+                        P_VH_TOT = c.VH_TOT,
+                        P_IDSALESPOINT = c.VH_IDSALESPOINT
                     }, tr,
                                 commandType: CommandType.StoredProcedure);
-
-
+                    
                     sql = "SP_I_MS_VOUCHERDE";
                     foreach (var item in d)
                     {
@@ -80,7 +87,59 @@ namespace DA.Ventas
                             P_VD_TOTALPRICE = item.VD_TOTALPRICE,
                             P_VD_COMMENT = item.VD_COMMENT,
                             P_VD_ISTATUS = item.VD_ISTATUS,
-                            P_VD_IDORDER = item.VD_IDORDER
+                            P_VD_IDORDER = item.VD_IDORDER,
+                            P_VD_IDLOTE = item.VD_IDLOTE
+                        }, tr,
+                                   commandType: CommandType.StoredProcedure);
+                    }
+
+
+                    //comando para grabar cabecera de almacen ==============================================
+                    sql = "SP_I_TRA_WAREHOUSE";
+                    idRegIdAlmacen = cnx.ExecuteScalar<Int32>(sql, new
+                    {
+                        P_ID_COMPANY = c.VH_IDCOMPANY,
+                        P_ID_WAREHOUSE = IdAlmacen,
+                        P_ITRANSACTION = "S",
+                        P_TRANSACTION_TYPE = "VL",
+                        P_DOCUMENT_TYPE = c.VH_TDOC,
+                        P_ID_SERIE = c.VH_SDOC,
+                        P_ID_CORRELATIVE = c.VH_NDOC,
+                        P_TRANSACTION_DATE = DateTime.Parse(c.VH_VOUCHERDATE),
+                        P_TRANSACCION_CURRENCY = c.VH_IDCURRENCY,
+                        P_ISTATUS = 1,
+                        P_AUSUARIO = c.VH_AUSUARIO,
+                        P_AFECREG = DateTime.Parse(c.VH_AFECREG),
+                        P_AMODIFICO = c.VH_AUSUARIO,
+                        P_AFECMOD = DateTime.Parse(c.VH_AFECREG),
+                        P_TIPOPER = "c",
+                        P_PERSONA = c.VH_IDCUSTOMER,
+                        P_IDCC = 0,
+                        P_COMMENT = "Salida por Venta con glosa ref: " + c.VH_COMMENT
+                    }, tr, commandType: CommandType.StoredProcedure);
+
+                    //grabar detalle en almacen
+                    sql = "SP_I_TRA_WAREHOUSE_LINE";
+                    foreach (var item in d)
+                    {
+                        cnx.Execute(sql, new
+                        {
+                            P_ID_COMPANY = c.VH_IDCOMPANY,
+                            P_ID_TRANSACTION_WAREHOUSE_LINE = idRegIdAlmacen,
+                            P_ID_WAREHOUSE = IdAlmacen,
+                            P_ITEM = item.VD_ITEM,
+                            P_ID_ARTICLE = item.VD_IDARTICULO,
+                            P_DESCRIPTION_ARTICLE = item.VD_DEARTICULO,
+                            P_LOT = item.VD_IDLOTE,
+                            P_SERIE = string.Empty,
+                            P_QTY = item.VD_QTY,
+                            P_COST = 0,
+                            P_COMMENT = item.VD_COMMENT,
+                            P_ISTATUS = 1,
+                            P_AUSUARIO = c.VH_AUSUARIO,
+                            P_AFECREG = DateTime.Parse(c.VH_AFECREG),
+                            P_AMODIFICO = c.VH_AUSUARIO,
+                            P_AFECMOD = DateTime.Parse(c.VH_AFECREG),
                         }, tr,
                                    commandType: CommandType.StoredProcedure);
                     }

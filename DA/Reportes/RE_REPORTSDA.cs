@@ -24,7 +24,8 @@ namespace DA.Reportes
                     PID_WAREHOUSE = ent.ID_WAREHOUSE,
                     PFECINI = DateTime.Parse(ent.TRANSACTION_DATE),
                     PFECFIN = DateTime.Parse(ent.AFECREG),//aqui guardo la fecha fin para el reporte
-                    PID_COMPANY = ent.ID_COMPANY
+                    PID_COMPANY = ent.ID_COMPANY,
+                    PUSUARIO = ent.AUSUARIO
                 }, commandType: CommandType.StoredProcedure).ToList();
             }
         }
@@ -38,7 +39,10 @@ namespace DA.Reportes
                 return cnx.Query<EREP_INVTRANSAC>(sql, new
                 {
                     PTRANSACTION_TYPE = ent.TRANSACTION_TYPE,
-                    PID_COMPANY = ent.ID_COMPANY                    
+                    PID_WAREHOUSE = ent.ID_WAREHOUSE,
+                    PAYO = DateTime.Parse(ent.TRANSACTION_DATE).Year,
+                    PMES = DateTime.Parse(ent.TRANSACTION_DATE).Month,
+                    PID_COMPANY = ent.ID_COMPANY
                 }, commandType: CommandType.StoredProcedure).ToList();
             }
         }
@@ -105,6 +109,20 @@ namespace DA.Reportes
             }
         }
 
+        public static List<EREP_SELVTAXCUSTO> GetRepRegVentas(EMS_VOUCHERHE ent)
+        {
+            var sql = "SP_S_REP_REGVENTAS";
+            using (SqlConnection cnx = new SqlConnection(Utilidad.getCadenaCnx()))
+            {
+                cnx.Open();
+                return cnx.Query<EREP_SELVTAXCUSTO>(sql, new
+                {                    
+                    PVH_VOUCHERDATE1 = DateTime.Parse(ent.VH_VOUCHERDATE),
+                    PVH_VOUCHERDATE2 = DateTime.Parse(ent.VH_DELIVERDATE),
+                    PVH_IDCOMPANY = ent.VH_IDCOMPANY
+                }, commandType: CommandType.StoredProcedure).ToList();
+            }
+        }
 
     }
 }

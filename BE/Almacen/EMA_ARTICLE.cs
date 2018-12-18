@@ -30,5 +30,8 @@ namespace BE.Almacen
         public string AFECMOD { get; set; }
         public string AISSERVICE { get; set; }
         public string ISTATUS { get; set; }
+        public string COD_ALT { get; set; }
+        public string COD_EAN { get; set; }
+        public string COD_SUNAT { get; set; }
     }
 }
