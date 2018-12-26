@@ -8,6 +8,7 @@ using System.Data.SqlClient;
 using Dapper;
 using BE.Almacen;
 using BE.Ventas;
+using BE.Caja;
 
 namespace DA.Reportes
 {
@@ -109,17 +110,34 @@ namespace DA.Reportes
             }
         }
 
-        public static List<EREP_SELVTAXCUSTO> GetRepRegVentas(EMS_VOUCHERHE ent)
+        public static List<EREP_REGVENTAS> GetRepRegVentas(EMS_VOUCHERHE ent)
         {
             var sql = "SP_S_REP_REGVENTAS";
             using (SqlConnection cnx = new SqlConnection(Utilidad.getCadenaCnx()))
             {
                 cnx.Open();
-                return cnx.Query<EREP_SELVTAXCUSTO>(sql, new
+                return cnx.Query<EREP_REGVENTAS>(sql, new
                 {                    
                     PVH_VOUCHERDATE1 = DateTime.Parse(ent.VH_VOUCHERDATE),
                     PVH_VOUCHERDATE2 = DateTime.Parse(ent.VH_DELIVERDATE),
                     PVH_IDCOMPANY = ent.VH_IDCOMPANY
+                }, commandType: CommandType.StoredProcedure).ToList();
+            }
+        }
+
+        public static List<ERE_DOCPENDICOB> GetRepDocPendicob(EMS_VOUCHERHE ent)
+        {
+            var sql = "SP_S_CJ_DOCPENDICOB";
+            using (SqlConnection cnx = new SqlConnection(Utilidad.getCadenaCnx()))
+            {
+                cnx.Open();
+                return cnx.Query<ERE_DOCPENDICOB>(sql, new
+                {
+                    P_TIPO = ent.VH_ISTATUS,//usamos este campo para enviar el tipo de reporte(C-P)
+                    P_CM_CUSTOMER_ID = ent.VH_IDCUSTOMER,
+                    P_FEC1 = DateTime.Parse(ent.VH_VOUCHERDATE),
+                    P_FEC2 = DateTime.Parse(ent.VH_DELIVERDATE),
+                    P_CM_IDCOMPANY = ent.VH_IDCOMPANY
                 }, commandType: CommandType.StoredProcedure).ToList();
             }
         }

@@ -95,6 +95,16 @@ namespace DA.Almacen
                 return cnx.Query<EMA_FAMILY_SUB>(sql, new { P_ID_COMPANY = e.ID_COMPANY, P_ID_FAMILY_SUB = e.ID_FAMILY_SUB }, commandType: CommandType.StoredProcedure).SingleOrDefault();
             }
         }
-        
+
+        public static List<EMA_FAMILY_SUB> GetByFam(EMA_FAMILY_SUB e)
+        {
+            var sql = "SP_MA_FAMILY_SUB_BYFAM";
+            using (SqlConnection cnx = new SqlConnection(Utilidad.getCadenaCnx()))
+            {
+                cnx.Open();
+                return cnx.Query<EMA_FAMILY_SUB>(sql, new { P_ID_COMPANY = e.ID_COMPANY, P_ID_FAMILY = e.ID_FAMILY }, commandType: CommandType.StoredProcedure).ToList();
+            }
+        }
+
     }
 }

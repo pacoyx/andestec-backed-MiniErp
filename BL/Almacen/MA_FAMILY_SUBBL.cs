@@ -15,5 +15,6 @@ namespace BL.Almacen
         public string Eliminar(EMA_FAMILY_SUB ee) { return MA_FAMILY_SUBDA.Delete(ee); }
         public List<EMA_FAMILY_SUB> Listar(EMA_FAMILY_SUB ee) { return MA_FAMILY_SUBDA.GetAll(ee); }
         public EMA_FAMILY_SUB ListarxId(EMA_FAMILY_SUB ee) => MA_FAMILY_SUBDA.GetByid(ee);
+        public List<EMA_FAMILY_SUB> ListarxFam(EMA_FAMILY_SUB ee) => MA_FAMILY_SUBDA.GetByFam(ee);
     }
 }

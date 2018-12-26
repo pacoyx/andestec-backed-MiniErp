@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using BE.Almacen;
 using BE.Ventas;
+using BE.Caja;
 using DA.Reportes;
 
 
@@ -19,6 +20,8 @@ namespace BL.Reportes
         public List<EREP_SELVTAXSEL> GetRepVentasxVendedor(EMS_VOUCHERHE ee) { return RE_REPORTSDA.GetRepVentasxVendedor(ee); }
         public List<EREP_SELVTAXARTI> GetRepVentasxArticulo(EMS_VOUCHERHE ee) { return RE_REPORTSDA.GetRepVentasxArticulo(ee); }
         public List<EREP_SELVTAXCUSTO> GetRepVentasxCliente(EMS_VOUCHERHE ee) { return RE_REPORTSDA.GetRepVentasxCliente(ee); }
-        public List<EREP_SELVTAXCUSTO> GetRepRegVentas(EMS_VOUCHERHE ee) { return RE_REPORTSDA.GetRepRegVentas(ee); }
+        public List<EREP_REGVENTAS> GetRepRegVentas(EMS_VOUCHERHE ee) { return RE_REPORTSDA.GetRepRegVentas(ee); }
+        public List<ERE_DOCPENDICOB> GetRepDocPendicob(EMS_VOUCHERHE ee) { return RE_REPORTSDA.GetRepDocPendicob(ee); }
+
     }
 }

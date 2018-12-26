@@ -29,20 +29,21 @@ namespace WA_AndesTec.Controllers
         }
 
         [HttpPost, Route("")]
-        public void Post([FromBody]EMA_PAYMENTTYPE value)
+        public string Post([FromBody]EMA_PAYMENTTYPE value)
         {
-            negocio.Registrar(value);
+            return negocio.Registrar(value);
         }
 
         [HttpPost, Route("")]
-        public void Put(int id, [FromBody]EMA_PAYMENTTYPE value)
+        public string Put(int id, [FromBody]EMA_PAYMENTTYPE value)
         {
+            return "";
         }
 
         [HttpDelete, Route("{ide}/{id}")]
-        public void Delete(int ide, string id)
+        public string Delete(int ide, string id)
         {
-            negocio.Eliminar(new EMA_PAYMENTTYPE { PT_IDCOMPANY = ide, PT_ID = id });
+            return negocio.Eliminar(new EMA_PAYMENTTYPE { PT_IDCOMPANY = ide, PT_ID = id });
         }
     }
 }

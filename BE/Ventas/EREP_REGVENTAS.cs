@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BE.Ventas
 {
-    public class EREP_SELVTAXARTI
+    public class EREP_REGVENTAS
     {
         public string CLIENTE { get; set; }
         public string FECHA { get; set; }

@@ -18,5 +18,6 @@ namespace BE.Almacen
         public string IDTIPO { get; set; }
         public string TIPO { get; set; }
         public string ESTADO { get; set; }
+        public string GLOSA { get; set; }
     }
 }

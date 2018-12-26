@@ -12,54 +12,72 @@ namespace DA.Almacen
 {
     public static class MA_TRANSACTION_TYPEDA
     {
-        public static void Insert(EMA_TRANSACTION_TYPE e)
+        public static string Insert(EMA_TRANSACTION_TYPE e)
         {
-            using (SqlConnection cnx = new SqlConnection(Utilidad.getCadenaCnx()))
+            string rpta = "ok";
+            try
             {
-                string sql = "SP_I_TRANSACTION_TYPE";
-                cnx.Execute(sql, new
+                using (SqlConnection cnx = new SqlConnection(Utilidad.getCadenaCnx()))
                 {
-                    P_CODIGO = e.TT_CODIGO,
-                    P_DESCRIPCION = e.TT_DESCRIPCION,
-                    P_INGSAL = e.TT_INGSAL,
-                    P_ID_COMPANY = e.TT_ID_COMPANY,
-                    P_COST = e.TT_COST,
-                    P_TYPE = e.TT_TYPE
-                },
-                            commandType: CommandType.StoredProcedure);
+                    string sql = "SP_I_TRANSACTION_TYPE";
+                    cnx.Execute(sql, new
+                    {
+                        P_CODIGO = e.TT_CODIGO,
+                        P_DESCRIPCION = e.TT_DESCRIPCION,
+                        P_INGSAL = e.TT_INGSAL,
+                        P_ID_COMPANY = e.TT_ID_COMPANY,
+                        P_COST = e.TT_COST,
+                        P_TYPE = e.TT_TYPE
+                    },
+                                commandType: CommandType.StoredProcedure);
+                }
             }
+            catch (Exception ex) { rpta = ex.Message; }
+            return rpta;
         }
 
-        public static void Update(EMA_TRANSACTION_TYPE e)
+        public static string Update(EMA_TRANSACTION_TYPE e)
         {
-            using (SqlConnection cnx = new SqlConnection(Utilidad.getCadenaCnx()))
+            string rpta = "ok";
+            try
             {
-                string sql = "SP_U_TRANSACTION_TYPE";
-                cnx.Execute(sql, new
+                using (SqlConnection cnx = new SqlConnection(Utilidad.getCadenaCnx()))
                 {
-                    P_CODIGO = e.TT_CODIGO,
-                    P_DESCRIPCION = e.TT_DESCRIPCION,
-                    P_INGSAL = e.TT_INGSAL,
-                    P_ID_COMPANY = e.TT_ID_COMPANY,
-                    P_COST = e.TT_COST,
-                    P_TYPE = e.TT_TYPE
-                },
-                            commandType: CommandType.StoredProcedure);
+                    string sql = "SP_U_TRANSACTION_TYPE";
+                    cnx.Execute(sql, new
+                    {
+                        P_CODIGO = e.TT_CODIGO,
+                        P_DESCRIPCION = e.TT_DESCRIPCION,
+                        P_INGSAL = e.TT_INGSAL,
+                        P_ID_COMPANY = e.TT_ID_COMPANY,
+                        P_COST = e.TT_COST,
+                        P_TYPE = e.TT_TYPE
+                    },
+                                commandType: CommandType.StoredProcedure);
+                }
             }
+            catch (Exception ex) { rpta = ex.Message; }
+            return rpta;
         }
 
-        public static void Delete(EMA_TRANSACTION_TYPE e)
+        public static string Delete(EMA_TRANSACTION_TYPE e)
         {
-            using (SqlConnection cnx = new SqlConnection(Utilidad.getCadenaCnx()))
+            string rpta = "ok";
+            try
             {
-                string sql = "SP_D_TRANSACTION_TYPE";
-                cnx.Execute(sql, new
+                using (SqlConnection cnx = new SqlConnection(Utilidad.getCadenaCnx()))
                 {
-                    P_CODIGO = e.TT_CODIGO,                    
-                    P_ID_COMPANY = e.TT_ID_COMPANY
-                },
-                            commandType: CommandType.StoredProcedure);
+                    string sql = "SP_D_TRANSACTION_TYPE";
+                    cnx.Execute(sql, new
+                    {
+                        P_CODIGO = e.TT_CODIGO,
+                        P_ID_COMPANY = e.TT_ID_COMPANY
+                    },
+                                commandType: CommandType.StoredProcedure);
+                }
             }
+            catch (Exception ex) { rpta = ex.Message; }
+            return rpta;
         }
 
         public static List<EMA_TRANSACTION_TYPE> GetAll(EMA_TRANSACTION_TYPE e)

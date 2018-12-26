@@ -12,48 +12,66 @@ namespace DA.Almacen
 {
     public static class MA_COMMODITY_TYPEDA
     {
-        public static void Insert(EMA_COMMODITY_TYPE e)
+        public static string Insert(EMA_COMMODITY_TYPE e)
         {
-            using (SqlConnection cnx = new SqlConnection(Utilidad.getCadenaCnx()))
+            string rpta = "ok";
+            try
             {
-                string sql = "SP_I_MA_COMMODITY_TYPE";
-                cnx.Execute(sql, new
+                using (SqlConnection cnx = new SqlConnection(Utilidad.getCadenaCnx()))
                 {
-                    P_ID_COMPANY = e.ID_COMPANY,
-                    P_ID_COMMODITY_TYPE = e.ID_COMMODITY_TYPE,
-                    P_DESCRIPTION_COMMODITY = e.DESCRIPTION_COMMODITY
-                },
-                            commandType: CommandType.StoredProcedure);
-            }           
+                    string sql = "SP_I_MA_COMMODITY_TYPE";
+                    cnx.Execute(sql, new
+                    {
+                        P_ID_COMPANY = e.ID_COMPANY,
+                        P_ID_COMMODITY_TYPE = e.ID_COMMODITY_TYPE,
+                        P_DESCRIPTION_COMMODITY = e.DESCRIPTION_COMMODITY
+                    },
+                                commandType: CommandType.StoredProcedure);
+                }
+            }
+            catch (Exception ex) { rpta = ex.Message; }
+            return rpta;
         }
 
-        public static void Update(EMA_COMMODITY_TYPE e)
+        public static string Update(EMA_COMMODITY_TYPE e)
         {
-            using (SqlConnection cnx = new SqlConnection(Utilidad.getCadenaCnx()))
+            string rpta = "ok";
+            try
             {
-                string sql = "SP_U_MA_COMMODITY_TYPE";
-                cnx.Execute(sql, new
+                using (SqlConnection cnx = new SqlConnection(Utilidad.getCadenaCnx()))
                 {
-                    P_ID_COMPANY = e.ID_COMPANY,
-                    P_ID_COMMODITY_TYPE = e.ID_COMMODITY_TYPE,
-                    P_DESCRIPTION_COMMODITY = e.DESCRIPTION_COMMODITY
-                },
-                            commandType: CommandType.StoredProcedure);
+                    string sql = "SP_U_MA_COMMODITY_TYPE";
+                    cnx.Execute(sql, new
+                    {
+                        P_ID_COMPANY = e.ID_COMPANY,
+                        P_ID_COMMODITY_TYPE = e.ID_COMMODITY_TYPE,
+                        P_DESCRIPTION_COMMODITY = e.DESCRIPTION_COMMODITY
+                    },
+                                commandType: CommandType.StoredProcedure);
+                }
             }
+            catch (Exception ex) { rpta = ex.Message; }
+            return rpta;
         }
 
-        public static void Delete(EMA_COMMODITY_TYPE e)
+        public static string Delete(EMA_COMMODITY_TYPE e)
         {
-            using (SqlConnection cnx = new SqlConnection(Utilidad.getCadenaCnx()))
+            string rpta = "ok";
+            try
             {
-                string sql = "SP_D_MA_COMMODITY_TYPE";
-                cnx.Execute(sql, new
+                using (SqlConnection cnx = new SqlConnection(Utilidad.getCadenaCnx()))
                 {
-                    P_ID_COMPANY = e.ID_COMPANY,
-                    P_ID_COMMODITY_TYPE = e.ID_COMMODITY_TYPE                    
-                },
-                            commandType: CommandType.StoredProcedure);
+                    string sql = "SP_D_MA_COMMODITY_TYPE";
+                    cnx.Execute(sql, new
+                    {
+                        P_ID_COMPANY = e.ID_COMPANY,
+                        P_ID_COMMODITY_TYPE = e.ID_COMMODITY_TYPE
+                    },
+                                commandType: CommandType.StoredProcedure);
+                }
             }
+            catch (Exception ex) { rpta = ex.Message; }
+            return rpta;
         }
 
         public static List<EMA_COMMODITY_TYPE> GetAll(EMA_COMMODITY_TYPE e)

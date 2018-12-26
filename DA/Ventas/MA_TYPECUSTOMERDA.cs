@@ -12,48 +12,66 @@ namespace DA.Ventas
 {
     public static class MA_TYPECUSTOMERDA
     {
-        public static void Insert(EMA_TYPECUSTOMER e)
+        public static string Insert(EMA_TYPECUSTOMER e)
         {
-            using (SqlConnection cnx = new SqlConnection(Utilidad.getCadenaCnx()))
+            string rpta = "ok";
+            try
             {
-                string sql = "SP_I_MA_TYPECUSTOMER";
-                cnx.Execute(sql, new
+                using (SqlConnection cnx = new SqlConnection(Utilidad.getCadenaCnx()))
                 {
-                    PTC_ID = e.TC_ID,
-                    PTC_DES = e.TC_DES,
-                    PTC_IDCOMPANY = e.TC_IDCOMPANY
-                },
-                            commandType: CommandType.StoredProcedure);
+                    string sql = "SP_I_MA_TYPECUSTOMER";
+                    cnx.Execute(sql, new
+                    {
+                        PTC_ID = e.TC_ID,
+                        PTC_DES = e.TC_DES,
+                        PTC_IDCOMPANY = e.TC_IDCOMPANY
+                    },
+                                commandType: CommandType.StoredProcedure);
+                }
             }
+            catch (Exception ex) { rpta = ex.Message; }
+            return rpta;
         }
 
-        public static void Update(EMA_TYPECUSTOMER e)
+        public static string Update(EMA_TYPECUSTOMER e)
         {
-            using (SqlConnection cnx = new SqlConnection(Utilidad.getCadenaCnx()))
+            string rpta = "ok";
+            try
             {
-                string sql = "SP_U_MA_TYPECUSTOMER";
-                cnx.Execute(sql, new
+                using (SqlConnection cnx = new SqlConnection(Utilidad.getCadenaCnx()))
                 {
-                    PTC_ID = e.TC_ID,
-                    PTC_DES = e.TC_DES,
-                    PTC_IDCOMPANY = e.TC_IDCOMPANY
-                },
-                            commandType: CommandType.StoredProcedure);
+                    string sql = "SP_U_MA_TYPECUSTOMER";
+                    cnx.Execute(sql, new
+                    {
+                        PTC_ID = e.TC_ID,
+                        PTC_DES = e.TC_DES,
+                        PTC_IDCOMPANY = e.TC_IDCOMPANY
+                    },
+                                commandType: CommandType.StoredProcedure);
+                }
             }
+            catch (Exception ex) { rpta = ex.Message; }
+            return rpta;
         }
 
-        public static void Delete(EMA_TYPECUSTOMER e)
+        public static string Delete(EMA_TYPECUSTOMER e)
         {
-            using (SqlConnection cnx = new SqlConnection(Utilidad.getCadenaCnx()))
+            string rpta = "ok";
+            try
             {
-                string sql = "SP_D_MA_TYPECUSTOMER";
-                cnx.Execute(sql, new
+                using (SqlConnection cnx = new SqlConnection(Utilidad.getCadenaCnx()))
                 {
-                    PTC_ID = e.TC_ID,                    
-                    PTC_IDCOMPANY = e.TC_IDCOMPANY
-                },
-                            commandType: CommandType.StoredProcedure);
+                    string sql = "SP_D_MA_TYPECUSTOMER";
+                    cnx.Execute(sql, new
+                    {
+                        PTC_ID = e.TC_ID,
+                        PTC_IDCOMPANY = e.TC_IDCOMPANY
+                    },
+                                commandType: CommandType.StoredProcedure);
+                }
             }
+            catch (Exception ex) { rpta = ex.Message; }
+            return rpta;
         }
 
         public static List<EMA_TYPECUSTOMER> GetAll(EMA_TYPECUSTOMER e)

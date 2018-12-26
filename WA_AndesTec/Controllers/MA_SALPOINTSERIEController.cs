@@ -36,21 +36,21 @@ namespace WA_AndesTec.Controllers
         }
 
         [HttpPost, Route("")]
-        public void Post([FromBody]EMA_SALPOINTSERIE value)
+        public string Post([FromBody]EMA_SALPOINTSERIE value)
         {
-            negocio.Registrar(value);
+            return negocio.Registrar(value);
         }
 
         [HttpPut, Route("")]
-        public void Put(int id, [FromBody]EMA_SALPOINTSERIE value)
+        public string Put(int id, [FromBody]EMA_SALPOINTSERIE value)
         {
-            negocio.Registrar(value);
+            return negocio.Registrar(value);
         }
 
         [HttpDelete, Route("{ide}/{po}/{doc}/{se}")]
-        public void Delete(int ide, string po, string doc, string se)
+        public string Delete(int ide, string po, string doc, string se)
         {
-            negocio.Eliminar(new EMA_SALPOINTSERIE { SS_IDPOINT = po, SS_ID_DOCUMENT = doc, SS_SERIE = se, SS_IDCOMPANY = ide });
+            return negocio.Eliminar(new EMA_SALPOINTSERIE { SS_IDPOINT = po, SS_ID_DOCUMENT = doc, SS_SERIE = se, SS_IDCOMPANY = ide });
         }
 
     }

@@ -29,15 +29,15 @@ namespace WA_AndesTec.Controllers
         }
 
         [HttpPost, Route("")]
-        public void Post([FromBody]EMA_TYPEPROVIDER value)
+        public string Post([FromBody]EMA_TYPEPROVIDER value)
         {
-            negocio.Registrar(value);
+            return negocio.Registrar(value);
         }
 
         [HttpDelete, Route("{ide}/{id}")]
-        public void Delete(int ide, string id)
+        public string Delete(int ide, string id)
         {
-            negocio.Eliminar(new EMA_TYPEPROVIDER { TP_ID = id, TP_IDCOMPANY = ide });
+            return negocio.Eliminar(new EMA_TYPEPROVIDER { TP_ID = id, TP_IDCOMPANY = ide });
         }
     }
 }

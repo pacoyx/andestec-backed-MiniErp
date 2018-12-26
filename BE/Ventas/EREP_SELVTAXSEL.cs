@@ -13,6 +13,7 @@ namespace BE.Ventas
         public string TIPDOC { get; set; }
         public string SERDOC { get; set; }
         public string NUMDOC { get; set; }
+        public string MONEDA { get; set; }
         public double CANTI { get; set; }
         public double PRECUNIT { get; set; }
         public double TOTAL { get; set; }

@@ -7,6 +7,7 @@ using System.Web.Http;
 using System.Web.Http.Cors;
 using BE.Ventas;
 using BE.Almacen;
+using BE.Caja;
 using BL.Reportes;
 
 namespace WA_AndesTec.Controllers
@@ -96,10 +97,24 @@ namespace WA_AndesTec.Controllers
         }
 
         [HttpGet, Route("{ide}/regventas/{f1}/{f2}")]
-        public IEnumerable<EREP_SELVTAXCUSTO> GetRepRegistroVentas(int ide, string f1, string f2)
+        public IEnumerable<EREP_REGVENTAS> GetRepRegistroVentas(int ide, string f1, string f2)
         {
             return negocio.GetRepRegVentas(new EMS_VOUCHERHE()
             {
+                VH_VOUCHERDATE = f1,
+                VH_DELIVERDATE = f2,
+                VH_IDCOMPANY = ide
+            }
+            );
+        }
+
+        [HttpGet, Route("{ide}/docpencob/{tipo}/{cli}/{f1}/{f2}")]
+        public IEnumerable<ERE_DOCPENDICOB> GetRepDocPendientescobranza(int ide,string tipo, int cli, string f1, string f2)
+        {
+            return negocio.GetRepDocPendicob(new EMS_VOUCHERHE()
+            {
+                VH_ISTATUS = tipo,
+                VH_IDCUSTOMER = cli,
                 VH_VOUCHERDATE = f1,
                 VH_DELIVERDATE = f2,
                 VH_IDCOMPANY = ide

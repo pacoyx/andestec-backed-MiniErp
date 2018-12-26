@@ -28,15 +28,15 @@ namespace WA_AndesTec.Controllers
         }
 
         [HttpPost, Route("")]
-        public void Post([FromBody]ECA_TRANSCOLLECTION value)
+        public string Post([FromBody]ECA_TRANSCOLLECTION value)
         {
-            negocio.Registrar(value);
+            return negocio.Registrar(value);
         }
 
         [HttpDelete, Route("{ide}/{id}")]
-        public void Delete(int ide, string id)
+        public string Delete(int ide, string id)
         {
-            negocio.Eliminar(new ECA_TRANSCOLLECTION { TC_IDTRANSCOLLECTION = id, TC_IDCOMPANY = ide });
+            return negocio.Eliminar(new ECA_TRANSCOLLECTION { TC_IDTRANSCOLLECTION = id, TC_IDCOMPANY = ide });
         }
 
     }

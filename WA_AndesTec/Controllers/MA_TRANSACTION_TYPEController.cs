@@ -39,23 +39,23 @@ namespace WA_AndesTec.Controllers
 
         // POST: api/MA_TRANSACTION_TYPE
         [HttpPost, Route("")]
-        public void Post([FromBody]EMA_TRANSACTION_TYPE value)
+        public string Post([FromBody]EMA_TRANSACTION_TYPE value)
         {
-            negocio.Registrar(value);
+            return negocio.Registrar(value);
         }
 
         // PUT: api/MA_TRANSACTION_TYPE/5
         [HttpPut, Route("{id}")]
-        public void Put(int id, [FromBody]EMA_TRANSACTION_TYPE value)
+        public string Put(int id, [FromBody]EMA_TRANSACTION_TYPE value)
         {
-            negocio.Registrar(value);
+            return negocio.Registrar(value);
         }
 
         // DELETE: api/MA_TRANSACTION_TYPE/5
         [HttpDelete, Route("{ide}/{id}")]
-        public void Delete(int ide, string id)
+        public string Delete(int ide, string id)
         {
-            negocio.Eliminar(new EMA_TRANSACTION_TYPE { TT_CODIGO = id, TT_ID_COMPANY = ide });
+            return negocio.Eliminar(new EMA_TRANSACTION_TYPE { TT_CODIGO = id, TT_ID_COMPANY = ide });
         }
     }
 }

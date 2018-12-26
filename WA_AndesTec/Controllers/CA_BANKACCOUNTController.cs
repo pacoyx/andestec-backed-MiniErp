@@ -36,15 +36,15 @@ namespace WA_AndesTec.Controllers
         }
 
         [HttpPost, Route("")]
-        public void Post([FromBody]ECA_BANKACCOUNT value)
+        public string Post([FromBody]ECA_BANKACCOUNT value)
         {
-            negocio.Registrar(value);
+            return negocio.Registrar(value);
         }
 
         [HttpDelete, Route("{ide}/{id}")]
-        public void Delete(int ide, int id)
+        public string Delete(int ide, int id)
         {
-            negocio.Eliminar(new ECA_BANKACCOUNT { AB_ID = id, AB_IDCOMPANY = ide });
+            return negocio.Eliminar(new ECA_BANKACCOUNT { AB_ID = id, AB_IDCOMPANY = ide });
         }
     }
 }

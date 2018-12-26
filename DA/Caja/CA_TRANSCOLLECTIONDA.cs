@@ -12,62 +12,80 @@ namespace DA.Caja
 {
     public static class CA_TRANSCOLLECTIONDA
     {
-        public static void Insert(ECA_TRANSCOLLECTION e)
+        public static string Insert(ECA_TRANSCOLLECTION e)
         {
-            using (SqlConnection cnx = new SqlConnection(Utilidad.getCadenaCnx()))
+            string rpta = "ok";
+            try
             {
-                string sql = "SP_I_CA_TRANSCOLLECTION";
-                cnx.Execute(sql, new
+                using (SqlConnection cnx = new SqlConnection(Utilidad.getCadenaCnx()))
                 {
-                    P_TC_IDTRANSCOLLECTION = e.TC_IDTRANSCOLLECTION,
-                    P_TC_DESCRIPTION = e.TC_DESCRIPTION,
-                    P_TC_IDCURRENCY = e.TC_IDCURRENCY,
-                    P_TC_TYPECASH = e.TC_TYPECASH,
-                    P_TC_TYPEDEPOSIT = e.TC_TYPEDEPOSIT,
-                    P_TC_TYPEAPPDPOC = e.TC_TYPEAPPDPOC,
-                    P_TC_TYPEPROVIDER = e.TC_TYPEPROVIDER,
-                    P_TC_TYPECARD = e.TC_TYPECARD,
-                    P_TC_ISTATUS = e.TC_ISTATUS,
-                    P_TC_IDCOMPANY = e.TC_IDCOMPANY
-                },
-                            commandType: CommandType.StoredProcedure);
+                    string sql = "SP_I_CA_TRANSCOLLECTION";
+                    cnx.Execute(sql, new
+                    {
+                        P_TC_IDTRANSCOLLECTION = e.TC_IDTRANSCOLLECTION,
+                        P_TC_DESCRIPTION = e.TC_DESCRIPTION,
+                        P_TC_IDCURRENCY = e.TC_IDCURRENCY,
+                        P_TC_TYPECASH = e.TC_TYPECASH,
+                        P_TC_TYPEDEPOSIT = e.TC_TYPEDEPOSIT,
+                        P_TC_TYPEAPPDPOC = e.TC_TYPEAPPDPOC,
+                        P_TC_TYPEPROVIDER = e.TC_TYPEPROVIDER,
+                        P_TC_TYPECARD = e.TC_TYPECARD,
+                        P_TC_ISTATUS = e.TC_ISTATUS,
+                        P_TC_IDCOMPANY = e.TC_IDCOMPANY
+                    },
+                                commandType: CommandType.StoredProcedure);
+                }
             }
+            catch (Exception ex) { rpta = ex.Message; }
+            return rpta;
         }
 
-        public static void Update(ECA_TRANSCOLLECTION e)
+        public static string Update(ECA_TRANSCOLLECTION e)
         {
-            using (SqlConnection cnx = new SqlConnection(Utilidad.getCadenaCnx()))
+            string rpta = "ok";
+            try
             {
-                string sql = "SP_U_CA_TRANSCOLLECTION";
-                cnx.Execute(sql, new
+                using (SqlConnection cnx = new SqlConnection(Utilidad.getCadenaCnx()))
                 {
-                    P_TC_IDTRANSCOLLECTION = e.TC_IDTRANSCOLLECTION,
-                    P_TC_DESCRIPTION = e.TC_DESCRIPTION,
-                    P_TC_IDCURRENCY = e.TC_IDCURRENCY,
-                    P_TC_TYPECASH = e.TC_TYPECASH,
-                    P_TC_TYPEDEPOSIT = e.TC_TYPEDEPOSIT,
-                    P_TC_TYPEAPPDPOC = e.TC_TYPEAPPDPOC,
-                    P_TC_TYPEPROVIDER = e.TC_TYPEPROVIDER,
-                    P_TC_TYPECARD = e.TC_TYPECARD,
-                    P_TC_ISTATUS = e.TC_ISTATUS,
-                    P_TC_IDCOMPANY = e.TC_IDCOMPANY
-                },
-                            commandType: CommandType.StoredProcedure);
+                    string sql = "SP_U_CA_TRANSCOLLECTION";
+                    cnx.Execute(sql, new
+                    {
+                        P_TC_IDTRANSCOLLECTION = e.TC_IDTRANSCOLLECTION,
+                        P_TC_DESCRIPTION = e.TC_DESCRIPTION,
+                        P_TC_IDCURRENCY = e.TC_IDCURRENCY,
+                        P_TC_TYPECASH = e.TC_TYPECASH,
+                        P_TC_TYPEDEPOSIT = e.TC_TYPEDEPOSIT,
+                        P_TC_TYPEAPPDPOC = e.TC_TYPEAPPDPOC,
+                        P_TC_TYPEPROVIDER = e.TC_TYPEPROVIDER,
+                        P_TC_TYPECARD = e.TC_TYPECARD,
+                        P_TC_ISTATUS = e.TC_ISTATUS,
+                        P_TC_IDCOMPANY = e.TC_IDCOMPANY
+                    },
+                                commandType: CommandType.StoredProcedure);
+                }
             }
+            catch (Exception ex) { rpta = ex.Message; }
+            return rpta;
         }
 
-        public static void Delete(ECA_TRANSCOLLECTION e)
+        public static string Delete(ECA_TRANSCOLLECTION e)
         {
-            using (SqlConnection cnx = new SqlConnection(Utilidad.getCadenaCnx()))
+            string rpta = "ok";
+            try
             {
-                string sql = "SP_D_CA_TRANSCOLLECTION";
-                cnx.Execute(sql, new
+                using (SqlConnection cnx = new SqlConnection(Utilidad.getCadenaCnx()))
                 {
-                    P_TC_IDTRANSCOLLECTION = e.TC_IDTRANSCOLLECTION,                    
-                    P_TC_IDCOMPANY = e.TC_IDCOMPANY
-                },
-                            commandType: CommandType.StoredProcedure);
+                    string sql = "SP_D_CA_TRANSCOLLECTION";
+                    cnx.Execute(sql, new
+                    {
+                        P_TC_IDTRANSCOLLECTION = e.TC_IDTRANSCOLLECTION,
+                        P_TC_IDCOMPANY = e.TC_IDCOMPANY
+                    },
+                                commandType: CommandType.StoredProcedure);
+                }
             }
+            catch (Exception ex) { rpta = ex.Message; }
+            return rpta;
         }
 
         public static List<ECA_TRANSCOLLECTION> GetAll(ECA_TRANSCOLLECTION e)

@@ -80,6 +80,7 @@
     <Compile Include="Caja\EMA_CREDITCARD.cs" />
     <Compile Include="Caja\EMA_PAYMENTMETHOD.cs" />
     <Compile Include="Caja\EPLANILLADET.cs" />
+    <Compile Include="Caja\ERE_DOCPENDICOB.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Test\TRADING.cs" />
     <Compile Include="Ventas\EMA_DOCUMENTS.cs" />
@@ -92,12 +93,14 @@
     <Compile Include="Ventas\EMA_TYPECOMMERCE.cs" />
     <Compile Include="Ventas\EMA_TYPECUSTOMER.cs" />
     <Compile Include="Ventas\EMA_TYPEPRICE.cs" />
+    <Compile Include="Ventas\EMA_USERSALESPOINT.cs" />
     <Compile Include="Ventas\EMS_ORDER.cs" />
     <Compile Include="Ventas\EMS_ORDERCAB.cs" />
     <Compile Include="Ventas\EMS_ORDERDET.cs" />
     <Compile Include="Ventas\EMS_VOUCHER.cs" />
     <Compile Include="Ventas\EMS_VOUCHERDE.cs" />
     <Compile Include="Ventas\EMS_VOUCHERHE.cs" />
+    <Compile Include="Ventas\EREP_REGVENTAS.cs" />
     <Compile Include="Ventas\EREP_SELVTAXARTI.cs" />
     <Compile Include="Ventas\EREP_SELVTAXCUSTO.cs" />
     <Compile Include="Ventas\EREP_SELVTAXSEL.cs" />

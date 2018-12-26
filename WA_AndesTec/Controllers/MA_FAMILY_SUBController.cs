@@ -29,6 +29,12 @@ namespace WA_AndesTec.Controllers
             return negocio.ListarxId(new EMA_FAMILY_SUB { ID_COMPANY = ide, ID_FAMILY_SUB = id });
         }
 
+        [HttpGet, Route("{ide}/fam/{idFam}")]
+        public IEnumerable<EMA_FAMILY_SUB> GetxFamilia(int ide, int idFam)
+        {
+            return negocio.ListarxFam(new EMA_FAMILY_SUB { ID_COMPANY = ide, ID_FAMILY = idFam });
+        }
+
         [HttpPost, Route("")]
         public string Post([FromBody]EMA_FAMILY_SUB value)
         {

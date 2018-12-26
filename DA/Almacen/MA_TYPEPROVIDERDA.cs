@@ -13,50 +13,68 @@ namespace DA.Almacen
 {
     public static class MA_TYPEPROVIDERDA
     {
-        public static void Insert(EMA_TYPEPROVIDER e)
+        public static string Insert(EMA_TYPEPROVIDER e)
         {
-            using (SqlConnection cnx = new SqlConnection(Utilidad.getCadenaCnx()))
+            string rpta = "ok";
+            try
             {
-                string sql = "SP_I_MA_TYPEPROVIDER";
-                cnx.Execute(sql, new
+                using (SqlConnection cnx = new SqlConnection(Utilidad.getCadenaCnx()))
                 {
-                    P_TP_ID = e.TP_ID,
-                    P_TP_DES = e.TP_DES,
-                    P_TP_ISTATUS = e.TP_ISTATUS,
-                    P_TP_IDCOMPANY = e.TP_IDCOMPANY
-                },
-                            commandType: CommandType.StoredProcedure);
+                    string sql = "SP_I_MA_TYPEPROVIDER";
+                    cnx.Execute(sql, new
+                    {
+                        P_TP_ID = e.TP_ID,
+                        P_TP_DES = e.TP_DES,
+                        P_TP_ISTATUS = e.TP_ISTATUS,
+                        P_TP_IDCOMPANY = e.TP_IDCOMPANY
+                    },
+                                commandType: CommandType.StoredProcedure);
+                }
             }
+            catch (Exception ex) { rpta = ex.Message; }
+            return rpta;
         }
 
-        public static void Update(EMA_TYPEPROVIDER e)
+        public static string Update(EMA_TYPEPROVIDER e)
         {
-            using (SqlConnection cnx = new SqlConnection(Utilidad.getCadenaCnx()))
+            string rpta = "ok";
+            try
             {
-                string sql = "SP_U_MA_TYPEPROVIDER";
-                cnx.Execute(sql, new
+                using (SqlConnection cnx = new SqlConnection(Utilidad.getCadenaCnx()))
                 {
-                    P_TP_ID = e.TP_ID,
-                    P_TP_DES = e.TP_DES,
-                    P_TP_ISTATUS = e.TP_ISTATUS,
-                    P_TP_IDCOMPANY = e.TP_IDCOMPANY
-                },
-                            commandType: CommandType.StoredProcedure);
+                    string sql = "SP_U_MA_TYPEPROVIDER";
+                    cnx.Execute(sql, new
+                    {
+                        P_TP_ID = e.TP_ID,
+                        P_TP_DES = e.TP_DES,
+                        P_TP_ISTATUS = e.TP_ISTATUS,
+                        P_TP_IDCOMPANY = e.TP_IDCOMPANY
+                    },
+                                commandType: CommandType.StoredProcedure);
+                }
             }
+            catch (Exception ex) { rpta = ex.Message; }
+            return rpta;
         }
 
-        public static void Delete(EMA_TYPEPROVIDER e)
+        public static string Delete(EMA_TYPEPROVIDER e)
         {
-            using (SqlConnection cnx = new SqlConnection(Utilidad.getCadenaCnx()))
+            string rpta = "ok";
+            try
             {
-                string sql = "SP_D_MA_TYPEPROVIDER";
-                cnx.Execute(sql, new
+                using (SqlConnection cnx = new SqlConnection(Utilidad.getCadenaCnx()))
                 {
-                    P_TP_ID = e.TP_ID,                    
-                    P_TP_IDCOMPANY = e.TP_IDCOMPANY
-                },
-                            commandType: CommandType.StoredProcedure);
+                    string sql = "SP_D_MA_TYPEPROVIDER";
+                    cnx.Execute(sql, new
+                    {
+                        P_TP_ID = e.TP_ID,
+                        P_TP_IDCOMPANY = e.TP_IDCOMPANY
+                    },
+                                commandType: CommandType.StoredProcedure);
+                }
             }
+            catch (Exception ex) { rpta = ex.Message; }
+            return rpta;
         }
 
 

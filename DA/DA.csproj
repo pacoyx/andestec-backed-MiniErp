@@ -83,6 +83,7 @@
     <Compile Include="Ventas\MA_TYPECOMMERCEDA.cs" />
     <Compile Include="Ventas\MA_TYPECUSTOMERDA.cs" />
     <Compile Include="Ventas\MA_TYPEPRICEDA.cs" />
+    <Compile Include="Ventas\MA_USERSALESPOINTDA.cs" />
     <Compile Include="Ventas\MS_ORDERCABDA.cs" />
     <Compile Include="Ventas\MS_VOUCHERHEDA.cs" />
   </ItemGroup>

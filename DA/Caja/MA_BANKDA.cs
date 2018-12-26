@@ -12,50 +12,68 @@ namespace DA.Caja
 {
     public static class MA_BANKDA
     {
-        public static void Insert(EMA_BANK e)
+        public static string Insert(EMA_BANK e)
         {
-            using (SqlConnection cnx = new SqlConnection(Utilidad.getCadenaCnx()))
+            string rpta = "ok";
+            try
             {
-                string sql = "SP_I_MA_BANK";
-                cnx.Execute(sql, new
+                using (SqlConnection cnx = new SqlConnection(Utilidad.getCadenaCnx()))
                 {
-                    P_BA_IDBANK = e.BA_IDBANK,
-                    P_BA_DESCRIPTIONS = e.BA_DESCRIPTIONS,
-                    P_BA_ISTATUS = e.BA_ISTATUS,
-                    P_BA_IDCOMPANY = e.BA_IDCOMPANY
-                },
-                            commandType: CommandType.StoredProcedure);
+                    string sql = "SP_I_MA_BANK";
+                    cnx.Execute(sql, new
+                    {
+                        P_BA_IDBANK = e.BA_IDBANK,
+                        P_BA_DESCRIPTIONS = e.BA_DESCRIPTIONS,
+                        P_BA_ISTATUS = e.BA_ISTATUS,
+                        P_BA_IDCOMPANY = e.BA_IDCOMPANY
+                    },
+                                commandType: CommandType.StoredProcedure);
+                }
             }
+            catch (Exception ex) { rpta = ex.Message; }
+            return rpta;
         }
 
-        public static void Update(EMA_BANK e)
+        public static string Update(EMA_BANK e)
         {
-            using (SqlConnection cnx = new SqlConnection(Utilidad.getCadenaCnx()))
+            string rpta = "ok";
+            try
             {
-                string sql = "SP_U_MA_BANK";
-                cnx.Execute(sql, new
+                using (SqlConnection cnx = new SqlConnection(Utilidad.getCadenaCnx()))
                 {
-                    P_BA_IDBANK = e.BA_IDBANK,
-                    P_BA_DESCRIPTIONS = e.BA_DESCRIPTIONS,
-                    P_BA_ISTATUS = e.BA_ISTATUS,
-                    P_BA_IDCOMPANY = e.BA_IDCOMPANY
-                },
-                            commandType: CommandType.StoredProcedure);
+                    string sql = "SP_U_MA_BANK";
+                    cnx.Execute(sql, new
+                    {
+                        P_BA_IDBANK = e.BA_IDBANK,
+                        P_BA_DESCRIPTIONS = e.BA_DESCRIPTIONS,
+                        P_BA_ISTATUS = e.BA_ISTATUS,
+                        P_BA_IDCOMPANY = e.BA_IDCOMPANY
+                    },
+                                commandType: CommandType.StoredProcedure);
+                }
             }
+            catch (Exception ex) { rpta = ex.Message; }
+            return rpta;
         }
 
-        public static void Delete(EMA_BANK e)
+        public static string Delete(EMA_BANK e)
         {
-            using (SqlConnection cnx = new SqlConnection(Utilidad.getCadenaCnx()))
+            string rpta = "ok";
+            try
             {
-                string sql = "SP_D_MA_BANK";
-                cnx.Execute(sql, new
+                using (SqlConnection cnx = new SqlConnection(Utilidad.getCadenaCnx()))
                 {
-                    P_BA_IDBANK = e.BA_IDBANK,                    
-                    P_BA_IDCOMPANY = e.BA_IDCOMPANY
-                },
-                            commandType: CommandType.StoredProcedure);
+                    string sql = "SP_D_MA_BANK";
+                    cnx.Execute(sql, new
+                    {
+                        P_BA_IDBANK = e.BA_IDBANK,
+                        P_BA_IDCOMPANY = e.BA_IDCOMPANY
+                    },
+                                commandType: CommandType.StoredProcedure);
+                }
             }
+            catch (Exception ex) { rpta = ex.Message; }
+            return rpta;
         }
 
         public static List<EMA_BANK> GetAll(EMA_BANK e)

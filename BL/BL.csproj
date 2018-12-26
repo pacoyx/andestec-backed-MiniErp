@@ -78,6 +78,7 @@
     <Compile Include="Ventas\MA_TYPECOMMERCEBL.cs" />
     <Compile Include="Ventas\MA_TYPECUSTOMERBL.cs" />
     <Compile Include="Ventas\MA_TYPEPRICEBL.cs" />
+    <Compile Include="Ventas\MA_USERSALESPOINTBL.cs" />
     <Compile Include="Ventas\MS_ORDERCABBL.cs" />
     <Compile Include="Ventas\MS_VOUCHERHEBL.cs" />
   </ItemGroup>

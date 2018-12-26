@@ -11,58 +11,76 @@ namespace DA.Ventas
 {
     public static class MA_SALPOINTSERIEDA
     {
-        public static void Insert(EMA_SALPOINTSERIE e)
+        public static string Insert(EMA_SALPOINTSERIE e)
         {
-            using (SqlConnection cnx = new SqlConnection(Utilidad.getCadenaCnx()))
+            string rpta = "ok";
+            try
             {
-                string sql = "SP_I_MA_SALPOINTSERIE";
-                cnx.Execute(sql, new
+                using (SqlConnection cnx = new SqlConnection(Utilidad.getCadenaCnx()))
                 {
-                    P_SS_IDPOINT = e.SS_IDPOINT,
-                    P_SS_ID_DOCUMENT = e.SS_ID_DOCUMENT,
-                    P_SS_SERIE = e.SS_SERIE,
-                    P_SS_INITCORRE = e.SS_INITCORRE,
-                    P_SS_PRINTING_FORMAT = e.SS_PRINTING_FORMAT,
-                    P_SS_ISTATUS = e.SS_ISTATUS,
-                    P_SS_IDCOMPANY = e.SS_IDCOMPANY
-                },
-                            commandType: CommandType.StoredProcedure);
+                    string sql = "SP_I_MA_SALPOINTSERIE";
+                    cnx.Execute(sql, new
+                    {
+                        P_SS_IDPOINT = e.SS_IDPOINT,
+                        P_SS_ID_DOCUMENT = e.SS_ID_DOCUMENT,
+                        P_SS_SERIE = e.SS_SERIE,
+                        P_SS_INITCORRE = e.SS_INITCORRE,
+                        P_SS_PRINTING_FORMAT = e.SS_PRINTING_FORMAT,
+                        P_SS_ISTATUS = e.SS_ISTATUS,
+                        P_SS_IDCOMPANY = e.SS_IDCOMPANY
+                    },
+                                commandType: CommandType.StoredProcedure);
+                }
             }
+            catch (Exception ex) { rpta = ex.Message; }
+            return rpta;
         }
 
-        public static void Update(EMA_SALPOINTSERIE e)
+        public static string Update(EMA_SALPOINTSERIE e)
         {
-            using (SqlConnection cnx = new SqlConnection(Utilidad.getCadenaCnx()))
+            string rpta = "ok";
+            try
             {
-                string sql = "SP_U_MA_SALPOINTSERIE";
-                cnx.Execute(sql, new
+                using (SqlConnection cnx = new SqlConnection(Utilidad.getCadenaCnx()))
                 {
-                    P_SS_IDPOINT = e.SS_IDPOINT,
-                    P_SS_ID_DOCUMENT = e.SS_ID_DOCUMENT,
-                    P_SS_SERIE = e.SS_SERIE,
-                    P_SS_INITCORRE = e.SS_INITCORRE,
-                    P_SS_PRINTING_FORMAT = e.SS_PRINTING_FORMAT,
-                    P_SS_ISTATUS = e.SS_ISTATUS,
-                    P_SS_IDCOMPANY = e.SS_IDCOMPANY
-                },
-                            commandType: CommandType.StoredProcedure);
+                    string sql = "SP_U_MA_SALPOINTSERIE";
+                    cnx.Execute(sql, new
+                    {
+                        P_SS_IDPOINT = e.SS_IDPOINT,
+                        P_SS_ID_DOCUMENT = e.SS_ID_DOCUMENT,
+                        P_SS_SERIE = e.SS_SERIE,
+                        P_SS_INITCORRE = e.SS_INITCORRE,
+                        P_SS_PRINTING_FORMAT = e.SS_PRINTING_FORMAT,
+                        P_SS_ISTATUS = e.SS_ISTATUS,
+                        P_SS_IDCOMPANY = e.SS_IDCOMPANY
+                    },
+                                commandType: CommandType.StoredProcedure);
+                }
             }
+            catch (Exception ex) { rpta = ex.Message; }
+            return rpta;
         }
 
-        public static void Delete(EMA_SALPOINTSERIE e)
+        public static string Delete(EMA_SALPOINTSERIE e)
         {
-            using (SqlConnection cnx = new SqlConnection(Utilidad.getCadenaCnx()))
+            string rpta = "ok";
+            try
             {
-                string sql = "SP_D_MA_SALPOINTSERIE";
-                cnx.Execute(sql, new
+                using (SqlConnection cnx = new SqlConnection(Utilidad.getCadenaCnx()))
                 {
-                    P_SS_IDPOINT = e.SS_IDPOINT,
-                    P_SS_ID_DOCUMENT = e.SS_ID_DOCUMENT,
-                    P_SS_SERIE = e.SS_SERIE,                    
-                    P_SS_IDCOMPANY = e.SS_IDCOMPANY
-                },
-                            commandType: CommandType.StoredProcedure);
+                    string sql = "SP_D_MA_SALPOINTSERIE";
+                    cnx.Execute(sql, new
+                    {
+                        P_SS_IDPOINT = e.SS_IDPOINT,
+                        P_SS_ID_DOCUMENT = e.SS_ID_DOCUMENT,
+                        P_SS_SERIE = e.SS_SERIE,
+                        P_SS_IDCOMPANY = e.SS_IDCOMPANY
+                    },
+                                commandType: CommandType.StoredProcedure);
+                }
             }
+            catch (Exception ex) { rpta = ex.Message; }
+            return rpta;
         }
 
         public static List<EMA_SALPOINTSERIE> GetAll(EMA_SALPOINTSERIE e)

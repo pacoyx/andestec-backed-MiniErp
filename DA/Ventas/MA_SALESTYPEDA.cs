@@ -13,48 +13,67 @@ namespace DA.Ventas
 {
     public static class MA_SALESTYPEDA
     {
-        public static void Insert(EMA_SALESTYPE e)
+
+        public static string Insert(EMA_SALESTYPE e)
         {
-            using (SqlConnection cnx = new SqlConnection(Utilidad.getCadenaCnx()))
+            string rpta = "ok";
+            try
             {
-                string sql = "SP_I_MA_SALESTYPE";
-                cnx.Execute(sql, new
+                using (SqlConnection cnx = new SqlConnection(Utilidad.getCadenaCnx()))
                 {
-                    P_ST_ID = e.ST_ID,
-                    P_ST_DES = e.ST_DES,
-                    P_ST_IDCOMPANY = e.ST_IDCOMPANY
-                },
-                            commandType: CommandType.StoredProcedure);
+                    string sql = "SP_I_MA_SALESTYPE";
+                    cnx.Execute(sql, new
+                    {
+                        P_ST_ID = e.ST_ID,
+                        P_ST_DES = e.ST_DES,
+                        P_ST_IDCOMPANY = e.ST_IDCOMPANY
+                    },
+                                commandType: CommandType.StoredProcedure);
+                }
             }
+            catch (Exception ex) { rpta = ex.Message; }
+            return rpta;
         }
 
-        public static void Update(EMA_SALESTYPE e)
+        public static string Update(EMA_SALESTYPE e)
         {
-            using (SqlConnection cnx = new SqlConnection(Utilidad.getCadenaCnx()))
+            string rpta = "ok";
+            try
             {
-                string sql = "SP_U_MA_SALESTYPE";
-                cnx.Execute(sql, new
+                using (SqlConnection cnx = new SqlConnection(Utilidad.getCadenaCnx()))
                 {
-                    P_ST_ID = e.ST_ID,
-                    P_ST_DES = e.ST_DES,
-                    P_ST_IDCOMPANY = e.ST_IDCOMPANY
-                },
-                            commandType: CommandType.StoredProcedure);
+                    string sql = "SP_U_MA_SALESTYPE";
+                    cnx.Execute(sql, new
+                    {
+                        P_ST_ID = e.ST_ID,
+                        P_ST_DES = e.ST_DES,
+                        P_ST_IDCOMPANY = e.ST_IDCOMPANY
+                    },
+                                commandType: CommandType.StoredProcedure);
+                }
             }
+            catch (Exception ex) { rpta = ex.Message; }
+            return rpta;
         }
 
-        public static void Delete(EMA_SALESTYPE e)
+        public static string Delete(EMA_SALESTYPE e)
         {
-            using (SqlConnection cnx = new SqlConnection(Utilidad.getCadenaCnx()))
+            string rpta = "ok";
+            try
             {
-                string sql = "SP_D_MA_SALESTYPE";
-                cnx.Execute(sql, new
+                using (SqlConnection cnx = new SqlConnection(Utilidad.getCadenaCnx()))
                 {
-                    P_ST_ID = e.ST_ID,                    
-                    P_ST_IDCOMPANY = e.ST_IDCOMPANY
-                },
-                            commandType: CommandType.StoredProcedure);
+                    string sql = "SP_D_MA_SALESTYPE";
+                    cnx.Execute(sql, new
+                    {
+                        P_ST_ID = e.ST_ID,
+                        P_ST_IDCOMPANY = e.ST_IDCOMPANY
+                    },
+                                commandType: CommandType.StoredProcedure);
+                }
             }
+            catch (Exception ex) { rpta = ex.Message; }
+            return rpta;
         }
 
         public static List<EMA_SALESTYPE> GetAll(EMA_SALESTYPE e)

@@ -12,53 +12,71 @@ namespace DA.Caja
 {
     public static class CA_BANKACCOUNTDA
     {
-        public static void Insert(ECA_BANKACCOUNT e)
+        public static string Insert(ECA_BANKACCOUNT e)
         {
-            using (SqlConnection cnx = new SqlConnection(Utilidad.getCadenaCnx()))
+            string rpta = "ok";
+            try
             {
-                string sql = "SP_I_CA_BANKACCOUNT";
-                cnx.Execute(sql, new
+                using (SqlConnection cnx = new SqlConnection(Utilidad.getCadenaCnx()))
                 {
-                    P_AB_IDBANKACCOUNT = e.AB_IDBANKACCOUNT,
-                    P_AB_IDBANK = e.AB_IDBANK,
-                    P_AB_CURRENCY = e.AB_CURRENCY,
-                    P_AB_DESCRIPTION = e.AB_DESCRIPTION,
-                    P_AB_IDCOMPANY = e.AB_IDCOMPANY
-                },
-                            commandType: CommandType.StoredProcedure);
+                    string sql = "SP_I_CA_BANKACCOUNT";
+                    cnx.Execute(sql, new
+                    {
+                        P_AB_IDBANKACCOUNT = e.AB_IDBANKACCOUNT,
+                        P_AB_IDBANK = e.AB_IDBANK,
+                        P_AB_CURRENCY = e.AB_CURRENCY,
+                        P_AB_DESCRIPTION = e.AB_DESCRIPTION,
+                        P_AB_IDCOMPANY = e.AB_IDCOMPANY
+                    },
+                                commandType: CommandType.StoredProcedure);
+                }
             }
+            catch (Exception ex) { rpta = ex.Message; }
+            return rpta;
         }
 
-        public static void Update(ECA_BANKACCOUNT e)
+        public static string Update(ECA_BANKACCOUNT e)
         {
-            using (SqlConnection cnx = new SqlConnection(Utilidad.getCadenaCnx()))
+            string rpta = "ok";
+            try
             {
-                string sql = "SP_U_CA_BANKACCOUNT";
-                cnx.Execute(sql, new
+                using (SqlConnection cnx = new SqlConnection(Utilidad.getCadenaCnx()))
                 {
-                    P_AB_ID = e.AB_ID,
-                    P_AB_IDBANKACCOUNT = e.AB_IDBANKACCOUNT,
-                    P_AB_IDBANK = e.AB_IDBANK,
-                    P_AB_CURRENCY = e.AB_CURRENCY,
-                    P_AB_DESCRIPTION = e.AB_DESCRIPTION,
-                    P_AB_IDCOMPANY = e.AB_IDCOMPANY
-                },
-                            commandType: CommandType.StoredProcedure);
+                    string sql = "SP_U_CA_BANKACCOUNT";
+                    cnx.Execute(sql, new
+                    {
+                        P_AB_ID = e.AB_ID,
+                        P_AB_IDBANKACCOUNT = e.AB_IDBANKACCOUNT,
+                        P_AB_IDBANK = e.AB_IDBANK,
+                        P_AB_CURRENCY = e.AB_CURRENCY,
+                        P_AB_DESCRIPTION = e.AB_DESCRIPTION,
+                        P_AB_IDCOMPANY = e.AB_IDCOMPANY
+                    },
+                                commandType: CommandType.StoredProcedure);
+                }
             }
+            catch (Exception ex) { rpta = ex.Message; }
+            return rpta;
         }
 
-        public static void Delete(ECA_BANKACCOUNT e)
+        public static string Delete(ECA_BANKACCOUNT e)
         {
-            using (SqlConnection cnx = new SqlConnection(Utilidad.getCadenaCnx()))
+            string rpta = "ok";
+            try
             {
-                string sql = "SP_D_CA_BANKACCOUNT";
-                cnx.Execute(sql, new
+                using (SqlConnection cnx = new SqlConnection(Utilidad.getCadenaCnx()))
                 {
-                    P_AB_ID = e.AB_ID,                    
-                    P_AB_IDCOMPANY = e.AB_IDCOMPANY
-                },
-                            commandType: CommandType.StoredProcedure);
+                    string sql = "SP_D_CA_BANKACCOUNT";
+                    cnx.Execute(sql, new
+                    {
+                        P_AB_ID = e.AB_ID,
+                        P_AB_IDCOMPANY = e.AB_IDCOMPANY
+                    },
+                                commandType: CommandType.StoredProcedure);
+                }
             }
+            catch (Exception ex) { rpta = ex.Message; }
+            return rpta;
         }
 
         public static List<ECA_BANKACCOUNT> GetAll(ECA_BANKACCOUNT e)
