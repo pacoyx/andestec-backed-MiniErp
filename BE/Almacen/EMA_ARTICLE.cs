@@ -33,5 +33,7 @@ namespace BE.Almacen
         public string COD_ALT { get; set; }
         public string COD_EAN { get; set; }
         public string COD_SUNAT { get; set; }
+        public double IVA { get; set; }       
+
     }
 }

@@ -16,10 +16,10 @@ namespace WA_AndesTec.Controllers
     {
         MS_ORDERCABBL negocio = new MS_ORDERCABBL();
 
-        [HttpGet, Route("{ide}/pedidos")]
-        public IEnumerable<ERE_LISTADOPEDIDO> GetListadPedidos(int ide)
+        [HttpGet, Route("{ide}/pedidos/{ayo}/{mes}")]
+        public IEnumerable<ERE_LISTADOPEDIDO> GetListadPedidos(int ide,int ayo, int mes)
         {
-            return negocio.GetListadoPedidos(ide);
+            return negocio.GetListadoPedidos(ide, ayo, mes);
         }
 
         [HttpGet, Route("{ide}/ayuda/{cli}")]

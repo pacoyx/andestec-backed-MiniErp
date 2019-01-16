@@ -19,6 +19,6 @@ namespace BE.Ventas
         public string ESTADO { get; set; }
         public double CANTIDADDES { get; set; }
         public string ESLOTE { get; set; }
-
+        public double IVA { get; set; }
     }
 }

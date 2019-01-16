@@ -69,7 +69,8 @@ namespace DA.Ventas
                         P_VH_SUBTOT = c.VH_SUBTOT,
                         P_VH_TAX = c.VH_TAX,
                         P_VH_TOT = c.VH_TOT,
-                        P_IDSALESPOINT = c.VH_IDSALESPOINT
+                        P_IDSALESPOINT = c.VH_IDSALESPOINT,
+                        P_CUREXCHANGE = c.CUREXCHANGE
                     }, tr,
                                 commandType: CommandType.StoredProcedure);
                     
@@ -115,7 +116,8 @@ namespace DA.Ventas
                         P_TIPOPER = "c",
                         P_PERSONA = c.VH_IDCUSTOMER,
                         P_IDCC = 0,
-                        P_COMMENT = "Salida por Venta con glosa ref: " + c.VH_COMMENT
+                        P_COMMENT = "Salida por Venta con glosa ref: " + c.VH_COMMENT,
+                        P_NUMCORRE = c.VH_SDOC.ToString() + '-' + c.VH_NDOC.ToString().PadLeft(10, '0')
                     }, tr, commandType: CommandType.StoredProcedure);
 
                     //grabar detalle en almacen
@@ -161,13 +163,18 @@ namespace DA.Ventas
 
         }
 
-        public static List<ERE_LISTADOCOMPROBANTE> GetListadoComprobantes(int emp)
+        public static List<ERE_LISTADOCOMPROBANTE> GetListadoComprobantes(int emp,int ayo,int mes)
         {
             var sql = "SP_S_LISTADOCOMPROBANTES";
             using (SqlConnection cnx = new SqlConnection(Utilidad.getCadenaCnx()))
             {
                 cnx.Open();
-                return cnx.Query<ERE_LISTADOCOMPROBANTE>(sql, new { P_VH_IDCOMPANY = emp }, commandType: CommandType.StoredProcedure).ToList();
+                return cnx.Query<ERE_LISTADOCOMPROBANTE>(sql, 
+                    new {
+                        P_VH_IDCOMPANY = emp,
+                        P_AYO = ayo,
+                        P_MES = mes
+                    }, commandType: CommandType.StoredProcedure).ToList();
             }
         }
 

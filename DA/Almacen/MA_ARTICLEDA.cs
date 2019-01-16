@@ -45,7 +45,8 @@ namespace DA.Almacen
                         P_ISTATUS = e.ISTATUS,
                         P_COD_ALT = e.COD_ALT,
                         P_COD_EAN = e.COD_EAN,
-                        P_COD_SUNAT = e.COD_SUNAT
+                        P_COD_SUNAT = e.COD_SUNAT,
+                        P_IVA = e.IVA                      
                     },
                                 commandType: CommandType.StoredProcedure);
                 }
@@ -88,7 +89,8 @@ namespace DA.Almacen
                     P_ISTATUS = e.ISTATUS,
                     P_COD_ALT = e.COD_ALT,
                     P_COD_EAN = e.COD_EAN,
-                    P_COD_SUNAT = e.COD_SUNAT
+                    P_COD_SUNAT = e.COD_SUNAT,
+                    P_IVA = e.IVA                    
                 },
                             commandType: CommandType.StoredProcedure);
             }

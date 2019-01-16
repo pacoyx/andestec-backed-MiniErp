@@ -22,6 +22,7 @@ namespace BL.Reportes
         public List<EREP_SELVTAXCUSTO> GetRepVentasxCliente(EMS_VOUCHERHE ee) { return RE_REPORTSDA.GetRepVentasxCliente(ee); }
         public List<EREP_REGVENTAS> GetRepRegVentas(EMS_VOUCHERHE ee) { return RE_REPORTSDA.GetRepRegVentas(ee); }
         public List<ERE_DOCPENDICOB> GetRepDocPendicob(EMS_VOUCHERHE ee) { return RE_REPORTSDA.GetRepDocPendicob(ee); }
+        public List<EREP_VTASXDIA> GetRepVtasxDia(EMS_VOUCHERHE ee) { return RE_REPORTSDA.GetRepVentasxDia(ee); }
 
     }
 }

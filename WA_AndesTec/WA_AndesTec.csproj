@@ -103,7 +103,9 @@
     <Compile Include="Controllers\MA_BANKController.cs" />
     <Compile Include="Controllers\MA_CENTER_COSTController.cs" />
     <Compile Include="Controllers\MA_COMMODITY_TYPEController.cs" />
+    <Compile Include="Controllers\MA_CONFIGGENController.cs" />
     <Compile Include="Controllers\MA_CREDITCARDController.cs" />
+    <Compile Include="Controllers\MA_CURRENCY_EXCHANGEController.cs" />
     <Compile Include="Controllers\MA_CUSTOMERController.cs" />
     <Compile Include="Controllers\MA_DOCTRANS_TYPEController.cs" />
     <Compile Include="Controllers\MA_DOCUMENTSController.cs" />

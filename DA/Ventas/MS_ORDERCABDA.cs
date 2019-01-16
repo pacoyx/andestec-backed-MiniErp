@@ -91,13 +91,18 @@ namespace DA.Ventas
         }
 
 
-        public static List<ERE_LISTADOPEDIDO> GetListadoPedidos(int emp)
+        public static List<ERE_LISTADOPEDIDO> GetListadoPedidos(int emp, int ayo, int mes)
         {
             var sql = "SP_S_LISTADOPEDIDOS";
             using (SqlConnection cnx = new SqlConnection(Utilidad.getCadenaCnx()))
             {
                 cnx.Open();
-                return cnx.Query<ERE_LISTADOPEDIDO>(sql, new { P_OC_IDCOMPANY = emp }, commandType: CommandType.StoredProcedure).ToList();
+                return cnx.Query<ERE_LISTADOPEDIDO>(sql, 
+                    new {
+                        P_OC_IDCOMPANY = emp,
+                        P_AYO = ayo,
+                        P_MES = mes
+                    }, commandType: CommandType.StoredProcedure).ToList();
             }
         }
 

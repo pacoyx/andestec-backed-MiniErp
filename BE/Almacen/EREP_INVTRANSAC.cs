@@ -20,5 +20,7 @@ namespace BE.Almacen
         public double TOTAL { get; set; }
         public string GLOSA { get; set; }
         public string ANEXO { get; set; }
+        public string TT_CODIGO { get; set; }
+        public string TT_DESCRIPCION { get; set; }
     }
 }

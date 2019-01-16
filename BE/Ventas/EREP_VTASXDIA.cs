@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BE.Ventas
 {
-    public class EREP_SELVTAXCUSTO
+    public class EREP_VTASXDIA
     {
         public string CLIENTE { get; set; }
         public string FECHA { get; set; }
@@ -18,9 +18,10 @@ namespace BE.Ventas
         public double IMPUESTO { get; set; }
         public double TOTAL { get; set; }
         public double TC { get; set; }
-        public int ITEM { get; set; }
-        public int IDARTICULO { get; set; }
-        public string DESARTICULO { get; set; }
-        public double CANT { get; set; }
+        public string TIPOPAGO { get; set; }
+        public string TARJETA { get; set; }
+        public string NUMOPE { get; set; }
+        public double MONTOPAGADO { get; set; }
+
     }
 }

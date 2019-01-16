@@ -19,5 +19,6 @@ namespace BE.Almacen
         public string TIPO { get; set; }
         public string ESTADO { get; set; }
         public string GLOSA { get; set; }
+        public string NUMCORRE { get; set; }
     }
 }

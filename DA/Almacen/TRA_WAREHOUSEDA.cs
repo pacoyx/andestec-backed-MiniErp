@@ -46,6 +46,7 @@ namespace DA.Almacen
                         cmd.Parameters.AddWithValue("@P_PERSONA", e.PERSONA);
                         cmd.Parameters.AddWithValue("@P_IDCC", e.IDCC);
                         cmd.Parameters.AddWithValue("@P_COMMENT", e.COMMENT);
+                        cmd.Parameters.AddWithValue("@P_NUMCORRE", string.Empty);   
 
                         Int32 idReg = int.Parse(cmd.ExecuteScalar().ToString());
 

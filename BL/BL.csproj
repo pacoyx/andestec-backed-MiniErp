@@ -63,6 +63,8 @@
     <Compile Include="Caja\MA_BANKBL.cs" />
     <Compile Include="Caja\MA_CREDITCARDBL.cs" />
     <Compile Include="Caja\MA_PAYMENTMETHODBL.cs" />
+    <Compile Include="Herramientas\MA_CONFIGGENBL.cs" />
+    <Compile Include="Herramientas\MA_CURRENCY_EXCHANGEBL.cs" />
     <Compile Include="Reportes\RE_REPORTSBL.cs" />
     <Compile Include="Almacen\TRA_WAREHOUSEBL.cs" />
     <Compile Include="Almacen\TRA_WAREHOUSE_QTYBL.cs" />

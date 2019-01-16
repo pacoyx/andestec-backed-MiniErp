@@ -25,7 +25,9 @@ namespace DA.Almacen
                         P_ID_WAREHOUSE = e.ID_WAREHOUSE,
                         P_DESCRIPCION = e.DESCRIPCION,
                         P_DIRECCION = e.DIRECCION,
-                        P_ID_COMPANY = e.ID_COMPANY
+                        P_ID_COMPANY = e.ID_COMPANY,
+                        P_NUMCORRE_I = e.NUMCORRE_I,
+                        P_NUMCORRE_S = e.NUMCORRE_S
                     },
                                 commandType: CommandType.StoredProcedure);
                 }
@@ -47,7 +49,9 @@ namespace DA.Almacen
                         P_ID_WAREHOUSE = e.ID_WAREHOUSE,
                         P_DESCRIPCION = e.DESCRIPCION,
                         P_DIRECCION = e.DIRECCION,
-                        P_ID_COMPANY = e.ID_COMPANY
+                        P_ID_COMPANY = e.ID_COMPANY,
+                        P_NUMCORRE_I = e.NUMCORRE_I,
+                        P_NUMCORRE_S = e.NUMCORRE_S
                     },
                                 commandType: CommandType.StoredProcedure);
                 }

@@ -81,6 +81,8 @@
     <Compile Include="Caja\EMA_PAYMENTMETHOD.cs" />
     <Compile Include="Caja\EPLANILLADET.cs" />
     <Compile Include="Caja\ERE_DOCPENDICOB.cs" />
+    <Compile Include="Herramientas\EMA_CONFIGGEN.cs" />
+    <Compile Include="Herramientas\EMA_CURRENCY_EXCHANGE.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Test\TRADING.cs" />
     <Compile Include="Ventas\EMA_DOCUMENTS.cs" />
@@ -104,6 +106,7 @@
     <Compile Include="Ventas\EREP_SELVTAXARTI.cs" />
     <Compile Include="Ventas\EREP_SELVTAXCUSTO.cs" />
     <Compile Include="Ventas\EREP_SELVTAXSEL.cs" />
+    <Compile Include="Ventas\EREP_VTASXDIA.cs" />
     <Compile Include="Ventas\ERE_LISTADOCOMPROBANTE.cs" />
     <Compile Include="Ventas\ERE_LISTADOPEDIDO.cs" />
     <Compile Include="Ventas\ERE_LISTADOPEDIDOAYU.cs" />

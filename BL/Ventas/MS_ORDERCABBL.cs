@@ -15,8 +15,8 @@ namespace BL.Ventas
             return MS_ORDERCABDA.Insert(orden);
         }
 
-        public List<ERE_LISTADOPEDIDO> GetListadoPedidos(int emp) {
-            return MS_ORDERCABDA.GetListadoPedidos(emp);
+        public List<ERE_LISTADOPEDIDO> GetListadoPedidos(int emp,int ayo, int mes) {
+            return MS_ORDERCABDA.GetListadoPedidos(emp, ayo, mes);
         }
 
         public List<ERE_LISTADOPEDIDOAYU> GetListadoPedidosAyuda(int emp, int idcliente)

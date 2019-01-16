@@ -122,6 +122,18 @@ namespace WA_AndesTec.Controllers
             );
         }
 
+        [HttpGet, Route("{ide}/vtasxdia/{f1}/{f2}")]
+        public IEnumerable<EREP_VTASXDIA> GetRepVentasxDia(int ide, string f1, string f2)
+        {
+            return negocio.GetRepVtasxDia(new EMS_VOUCHERHE()
+            {
+                VH_VOUCHERDATE = f1,
+                VH_DELIVERDATE = f2,
+                VH_IDCOMPANY = ide
+            }
+            );
+        }
+
 
 
     }

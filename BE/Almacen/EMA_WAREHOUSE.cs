@@ -12,5 +12,7 @@ namespace BE.Almacen
         public string DESCRIPCION { get; set; }
         public string DIRECCION { get; set; }
         public int ID_COMPANY { get; set; }
+        public int NUMCORRE_I { get; set; }
+        public int NUMCORRE_S { get; set; }
     }
 }

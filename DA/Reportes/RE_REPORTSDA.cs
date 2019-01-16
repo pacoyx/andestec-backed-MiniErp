@@ -142,5 +142,20 @@ namespace DA.Reportes
             }
         }
 
+        public static List<EREP_VTASXDIA> GetRepVentasxDia(EMS_VOUCHERHE ent)
+        {
+            var sql = "SP_S_REP_VTASXDIA";
+            using (SqlConnection cnx = new SqlConnection(Utilidad.getCadenaCnx()))
+            {
+                cnx.Open();
+                return cnx.Query<EREP_VTASXDIA>(sql, new
+                {
+                    PVH_VOUCHERDATE1 = DateTime.Parse(ent.VH_VOUCHERDATE),
+                    PVH_VOUCHERDATE2 = DateTime.Parse(ent.VH_DELIVERDATE),
+                    PVH_IDCOMPANY = ent.VH_IDCOMPANY
+                }, commandType: CommandType.StoredProcedure).ToList();
+            }
+        }
+
     }
 }

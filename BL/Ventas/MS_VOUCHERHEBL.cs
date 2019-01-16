@@ -15,9 +15,9 @@ namespace BL.Ventas
             return MS_VOUCHERHEDA.Insert(orden);
         }
 
-        public List<ERE_LISTADOCOMPROBANTE> GetListadoComprobantes(int emp)
+        public List<ERE_LISTADOCOMPROBANTE> GetListadoComprobantes(int emp,int ayo, int mes)
         {
-            return MS_VOUCHERHEDA.GetListadoComprobantes(emp);
+            return MS_VOUCHERHEDA.GetListadoComprobantes(emp, ayo, mes);
         }
             
         public ERE_VISTACOMPROBANTE ListarRepVistaComprobante(int ide, int idOrder)

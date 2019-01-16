@@ -17,5 +17,6 @@ namespace BE.Ventas
         public double CANTI { get; set; }
         public double PRECUNIT { get; set; }
         public double TOTAL { get; set; }
+        public double TC { get; set; }
     }
 }

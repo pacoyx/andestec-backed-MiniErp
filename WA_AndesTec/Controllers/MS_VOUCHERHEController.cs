@@ -16,13 +16,12 @@ namespace WA_AndesTec.Controllers
     {
         MS_VOUCHERHEBL negocio = new MS_VOUCHERHEBL();
 
-        [HttpGet, Route("{ide}/comprobantes")]
-        public IEnumerable<ERE_LISTADOCOMPROBANTE> GetListaComprobantes(int ide)
+        [HttpGet, Route("{ide}/comprobantes/{ayo}/{mes}")]
+        public IEnumerable<ERE_LISTADOCOMPROBANTE> GetListaComprobantes(int ide,int ayo,int mes)
         {
-            return negocio.GetListadoComprobantes(ide);
+            return negocio.GetListadoComprobantes(ide,ayo,mes);
         }
-        
-       
+               
         [HttpPost, Route("")]
         public string Post([FromBody]EMS_VOUCHER value)
         {
