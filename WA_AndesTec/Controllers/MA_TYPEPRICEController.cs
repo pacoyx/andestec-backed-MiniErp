@@ -28,6 +28,12 @@ namespace WA_AndesTec.Controllers
             return negocio.ListarArticulosxTP(new EMA_TYPEPRICE { TP_ID = id, TP_IDCOMPANY = ide });
         }
 
+        [HttpGet, Route("{ide}/{id}/articulos/{idarti}")]
+        public EMA_ARTICULOTP GetTipoPrecioxId(int ide, string id,int idarti)
+        {
+            return negocio.ListarTipoPrecioxId(new EMA_TYPEPRICE { TP_ID = id, TP_DES = idarti.ToString(), TP_IDCOMPANY = ide });
+        }
+
         [HttpGet, Route("{ide}/{id}")]
         public EMA_TYPEPRICE GetBYID(int ide, string id)
         {

@@ -117,6 +117,17 @@ namespace DA.Ventas
             }
         }
 
+        public static EMA_ARTICULOTP GetTipoPrecioByid(EMA_TYPEPRICE e)
+        {
+            var sql = "SP_S_ARTIXTIPPRE_BYIDARTI";
+            using (SqlConnection cnx = new SqlConnection(Utilidad.getCadenaCnx()))
+            {
+                //la propiedad e.TP_DES guardara elcodigo del articulo (int ID_ARTICLE) temporalmente
+                cnx.Open();
+                return cnx.Query<EMA_ARTICULOTP>(sql, new { P_TP = e.TP_ID, P_IDARTICLE = int.Parse( e.TP_DES),P_IDEMPRESA = e.TP_IDCOMPANY }, commandType: CommandType.StoredProcedure).SingleOrDefault();
+            }
+        }
+
         public static EMA_TYPEPRICE GetByid(EMA_TYPEPRICE e)
         {
             var sql = "SP_S_MA_TYPEPRICE_BYID";

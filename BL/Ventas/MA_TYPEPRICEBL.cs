@@ -19,5 +19,6 @@ namespace BL.Ventas
         public List<EMA_TYPEPRICE> Listar(EMA_TYPEPRICE ee) { return MA_TYPEPRICEDA.GetAll(ee); }
         public EMA_TYPEPRICE ListarxId(EMA_TYPEPRICE ee) => MA_TYPEPRICEDA.GetByid(ee);
         public List<EMA_ARTICULOTP> ListarArticulosxTP(EMA_TYPEPRICE ee) { return MA_TYPEPRICEDA.GetArticulosxTP(ee); }
+        public EMA_ARTICULOTP ListarTipoPrecioxId(EMA_TYPEPRICE ee) => MA_TYPEPRICEDA.GetTipoPrecioByid(ee);
     }
 }
