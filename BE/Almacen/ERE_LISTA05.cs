@@ -14,5 +14,7 @@ namespace BE.Almacen
         public string LOTE { get; set; }
         public double CANTIDAD { get; set; }
         public double COSTO { get; set; }
+        public int IDTRANSAC { get; set; }
+        public int IDARTICULO { get; set; }
     }
 }

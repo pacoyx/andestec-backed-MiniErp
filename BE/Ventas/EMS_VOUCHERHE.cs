@@ -44,6 +44,7 @@ namespace BE.Ventas
         public double VH_TAX { get; set; }
         public double VH_TOT { get; set; }
         public string VH_IDSALESPOINT { get; set; }
-        public double CUREXCHANGE { get; set; }        
+        public double CUREXCHANGE { get; set; }
+        public string VH_IDCURREPAY { get; set; }
     }
 }

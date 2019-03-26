@@ -33,6 +33,29 @@ namespace DA.Ventas
             return rpta;
         }
 
+        public static string InsertArticuloTP(EMA_TIPPREDETALLE e)
+        {
+            string rpta = "ok";
+            try
+            {
+                using (SqlConnection cnx = new SqlConnection(Utilidad.getCadenaCnx()))
+                {
+                    string sql = "SP_I_ARTICULOTP";
+                    cnx.Execute(sql, new
+                    {
+                        P_IDTP = e.TPD_TPID,
+                        P_IDARTI = e.TPD_ARID,
+                        P_SOL = e.TPD_SOL,
+                        P_DOL = e.TPD_DOLAR,
+                        P_IDEMPRESA = e.TPD_IDCOMPANY
+                    },
+                                commandType: CommandType.StoredProcedure);
+                }
+            }
+            catch (Exception ex) { rpta = ex.Message; }
+            return rpta;
+        }
+
         public static string Update(EMA_TYPEPRICE e)
         {
             string rpta = "ok";
@@ -81,6 +104,16 @@ namespace DA.Ventas
             {
                 cnx.Open();
                 return cnx.Query<EMA_TYPEPRICE>(sql, new { PTP_IDCOMPANY = e.TP_IDCOMPANY }, commandType: CommandType.StoredProcedure).ToList();
+            }
+        }
+
+        public static List<EMA_ARTICULOTP> GetArticulosxTP(EMA_TYPEPRICE e)
+        {
+            var sql = "SP_S_ARTIXTIPPRE";
+            using (SqlConnection cnx = new SqlConnection(Utilidad.getCadenaCnx()))
+            {
+                cnx.Open();
+                return cnx.Query<EMA_ARTICULOTP>(sql, new { P_TP = e.TP_ID, P_IDEMPRESA = e.TP_IDCOMPANY }, commandType: CommandType.StoredProcedure).ToList();
             }
         }
 

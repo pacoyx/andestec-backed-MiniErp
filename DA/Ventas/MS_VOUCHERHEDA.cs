@@ -70,7 +70,8 @@ namespace DA.Ventas
                         P_VH_TAX = c.VH_TAX,
                         P_VH_TOT = c.VH_TOT,
                         P_IDSALESPOINT = c.VH_IDSALESPOINT,
-                        P_CUREXCHANGE = c.CUREXCHANGE
+                        P_CUREXCHANGE = c.CUREXCHANGE,
+                        P_IDCURREPAY = c.VH_IDCURREPAY
                     }, tr,
                                 commandType: CommandType.StoredProcedure);
                     
@@ -89,7 +90,10 @@ namespace DA.Ventas
                             P_VD_COMMENT = item.VD_COMMENT,
                             P_VD_ISTATUS = item.VD_ISTATUS,
                             P_VD_IDORDER = item.VD_IDORDER,
-                            P_VD_IDLOTE = item.VD_IDLOTE
+                            P_VD_IDLOTE = item.VD_IDLOTE,
+                            P_VD_XIGV =item.VD_XIGV,
+                            P_VD_XSUBT = item.VD_XSUBT,
+                            P_VD_XTOT = item.VD_XTOT
                         }, tr,
                                    commandType: CommandType.StoredProcedure);
                     }

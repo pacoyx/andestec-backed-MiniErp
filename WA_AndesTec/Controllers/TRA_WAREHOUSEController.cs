@@ -58,7 +58,12 @@ namespace WA_AndesTec.Controllers
             return negocio.Registrar(value);
         }
 
-        public void Put(int id, [FromBody]string value) { }
+        [HttpPut, Route("")]
+        public string PutActCosto([FromBody]ETRA_WAREHOUSE_LINE value)
+        {
+            return negocio.ActualizarCostoAlm(value);
+        }
+
         public void Delete(int id) { }
     }
 }

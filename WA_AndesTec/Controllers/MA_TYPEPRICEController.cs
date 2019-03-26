@@ -22,6 +22,12 @@ namespace WA_AndesTec.Controllers
             return negocio.Listar(new EMA_TYPEPRICE { TP_IDCOMPANY = ide });
         }
 
+        [HttpGet, Route("{ide}/{id}/articulos")]
+        public IEnumerable<EMA_ARTICULOTP> GetArticulosxTP(int ide, string id)
+        {
+            return negocio.ListarArticulosxTP(new EMA_TYPEPRICE { TP_ID = id, TP_IDCOMPANY = ide });
+        }
+
         [HttpGet, Route("{ide}/{id}")]
         public EMA_TYPEPRICE GetBYID(int ide, string id)
         {
@@ -32,6 +38,12 @@ namespace WA_AndesTec.Controllers
         public string Post([FromBody]EMA_TYPEPRICE value)
         {
             return negocio.Registrar(value);
+        }
+
+        [HttpPost, Route("articulo")]
+        public string PostArticuloTP([FromBody]EMA_TIPPREDETALLE value)
+        {
+            return negocio.RegistrarArticuloTP(value);
         }
 
         [HttpDelete, Route("{ide}/{id}")]

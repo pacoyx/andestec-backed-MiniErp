@@ -45,5 +45,12 @@ namespace BL.Almacen
         {
             return TRA_WAREHOUSEDA.GetRepVistaDocDet(idDocAlm);
         }
+
+        public string ActualizarCostoAlm(ETRA_WAREHOUSE_LINE ee) {
+            return TRA_WAREHOUSEDA.UpdateCosto(ee);
+        }
+
+
     }   
+
 }

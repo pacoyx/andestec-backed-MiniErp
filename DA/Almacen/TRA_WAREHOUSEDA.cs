@@ -145,5 +145,29 @@ namespace DA.Almacen
             }
         }
 
+
+        public static string UpdateCosto(ETRA_WAREHOUSE_LINE e)
+        {
+            string rpta = "ok";
+            try
+            {
+                using (SqlConnection cnx = new SqlConnection(Utilidad.getCadenaCnx()))
+                {
+                    string sql = "SP_U_ACTUCOSTOALM";
+                    cnx.Execute(sql, new
+                    {
+                        P_COSTO = e.COST,
+                        P_IDMOV = e.ID_TRANSACTION_WAREHOUSE_LINE,
+                        P_ITEM = e.ITEM,
+                        P_IDARTICULO = e.ID_ARTICLE
+                    },
+                                commandType: CommandType.StoredProcedure);
+                }
+            }
+            catch (Exception ex) { rpta = ex.Message; }
+            return rpta;
+        }
+
+
     }
 }
